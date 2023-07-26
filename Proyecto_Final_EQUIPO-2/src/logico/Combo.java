@@ -3,42 +3,48 @@ package logico;
 import java.util.ArrayList;
 
 public class Combo {
-	private ArrayList<Componente> componentesDelCombo;
-	private double precioCombo;
+    private String numeroSerie;
+    private ArrayList<Componente> componentesIncluidos;
+    private double precioTotalCombo;
 
-	public Combo() {
-		super();
-		this.componentesDelCombo = new ArrayList<>();
-		this.precioCombo = 0.0;
-	}
+    public Combo(String numeroSerie, ArrayList<Componente> componentesIncluidos) {
+        this.numeroSerie = numeroSerie;
+        this.componentesIncluidos = componentesIncluidos;
+        this.precioTotalCombo = calcularPrecioTotal();
+    }
 
-	public ArrayList<Componente> getComponentesDelCombo() {
-		return componentesDelCombo;
-	}
+    private double calcularPrecioTotal() {
+        double total = 0.0;
+        for (Componente componente : componentesIncluidos) {
+            total += componente.getPrecio();
+        }
+        return total;
+    }
 
-	public void setComponentesDelCombo(ArrayList<Componente> componentesDelCombo) {
-		this.componentesDelCombo = componentesDelCombo;
-	}
+    // Getters para los atributos de ComboComponentes
+    public String getNumeroSerie() {
+        return numeroSerie;
+    }
 
-	public double getPrecioCombo() {
-		return precioCombo;
-	}
+    public ArrayList<Componente> getComponentesIncluidos() {
+        return componentesIncluidos;
+    }
 
-	public void setPrecioCombo(double precioCombo) {
-		this.precioCombo = precioCombo;
-	}
+    public double getPrecioTotalCombo() {
+        return precioTotalCombo;
+    }
 
-	public void agregarComponente(Componente componente) {
-		componentesDelCombo.add(componente);
-		precioCombo += componente.getPrecio();
-	}
-
-	public void mostarComponentesDelCombo() {
-		System.out.println("Componentes incluidos en el combo:");
-		for (Componente componente : componentesDelCombo) {
-			System.out.println(componente.getClass().getSimpleName() + ": " + componente.getModelo());
-		}
-		System.out.println("Precio total del combo: $" + precioCombo);
-	}
-
+    // Método para mostrar los componentes incluidos en el combo
+    public void mostrarComponentesDelCombo() {
+        System.out.println("Combo: " + numeroSerie);
+        System.out.println("Componentes incluidos:");
+        for (Componente componente : componentesIncluidos) {
+            System.out.println(componente.getClass().getSimpleName() + " - " +
+                    "Modelo: " + componente.getModelo() +
+                    ", Marca: " + componente.getMarca() +
+                    ", Precio: $" + componente.getPrecio());
+        }
+        System.out.println("Precio total del combo: $" + precioTotalCombo);
+        System.out.println();
+    }
 }

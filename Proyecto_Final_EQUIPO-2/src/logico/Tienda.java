@@ -37,7 +37,7 @@ public class Tienda {
 	public void mostrarCombosDisponibles() {
 		System.out.println("Combos Disponibles:");
 		for (Combo combo : combosDisponibles) {
-			combo.mostarComponentesDelCombo();;
+			combo.mostrarComponentesDelCombo();;
 		}
 	}
 
@@ -54,11 +54,9 @@ public class Tienda {
 
 	public Combo buscarComboPorNumeroSerie(String numeroSerie) {
 		for (Combo combo : combosDisponibles) {
-			for (Componente componente : combo.getComponentesDelCombo()) {
-				if (componente.getNumeroSerie().equals(numeroSerie)) {
+				if (combo.getNumeroSerie().equals(numeroSerie)) {
 					return combo;
 				}
-			}
 		}
 		return null; // Retorna null si el combo no se encuentra en los combos disponibles
 	}
@@ -66,7 +64,7 @@ public class Tienda {
 	// Método para ensamblar un combo de componentes
 
 	public void ensamblarCombo(Combo combo) {
-		for (Componente componente : combo.getComponentesDelCombo()) {
+		for (Componente componente : combo.getComponentesIncluidos()) {
 			if (!inventarioComponentes.contains(componente)) {
 				System.out.println("Error: Uno o más componentes del combo no están disponibles en el inventario.");
 				return;
@@ -75,12 +73,12 @@ public class Tienda {
 
 		// Si todos los componentes están disponibles, se ensambla el combo
 		System.out.println("Ensamblado del combo exitoso. Factura:");
-		for (Componente componente : combo.getComponentesDelCombo()) {
+		for (Componente componente : combo.getComponentesIncluidos()) {
 			System.out.println(componente.getClass().getSimpleName() + " - " +
 					"Modelo: " + componente.getModelo() +
 					", Marca: " + componente.getMarca() +
 					", Precio: $" + componente.getPrecio());
 		}
-		System.out.println("Precio total del combo: $" + combo.getPrecioCombo());
+		System.out.println("Precio total del combo: $" + combo.getPrecioTotalCombo());
 	}
 }
