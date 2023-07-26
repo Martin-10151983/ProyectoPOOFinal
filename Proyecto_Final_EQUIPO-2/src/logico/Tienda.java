@@ -3,50 +3,84 @@ package logico;
 import java.util.ArrayList;
 
 public class Tienda {
-	private ArrayList<Componente> inventario;
-	private ArrayList<Cliente> clientes;
-	private ArrayList<Factura> facturas;
-	private ArrayList<Combo> combos;
-	
+	private ArrayList<Componente> inventarioComponentes;
+	private ArrayList<Combo> combosDisponibles;
+
 	public Tienda() {
-		super();
-		this.inventario = new ArrayList<>();
-		this.clientes = new ArrayList<>();
-		this.facturas = new ArrayList<>();
-		this.combos = new ArrayList<>();
+		this.inventarioComponentes = new ArrayList<>();
+		this.combosDisponibles = new ArrayList<>();
 	}
 
-	public ArrayList<Componente> getInventario() {
-		return inventario;
+	// Métodos para gestionar el inventario de componentes
+
+	public void agregarComponente(Componente componente) {
+		inventarioComponentes.add(componente);
 	}
 
-	public void setInventario(ArrayList<Componente> inventario) {
-		this.inventario = inventario;
+	public void mostrarInventarioComponentes() {
+		System.out.println("Inventario de Componentes:");
+		for (Componente componente : inventarioComponentes) {
+			System.out.println(componente.getClass().getSimpleName() + " - " +
+					"Modelo: " + componente.getModelo() +
+					", Marca: " + componente.getMarca() +
+					", Precio: $" + componente.getPrecio() +
+					", Cantidad Disponible: " + componente.getCantidadDisponible());
+		}
 	}
 
-	public ArrayList<Cliente> getClientes() {
-		return clientes;
+	// Métodos para gestionar los combos de componentes
+
+	public void agregarCombo(Combo combo) {
+		combosDisponibles.add(combo);
 	}
 
-	public void setClientes(ArrayList<Cliente> clientes) {
-		this.clientes = clientes;
+	public void mostrarCombosDisponibles() {
+		System.out.println("Combos Disponibles:");
+		for (Combo combo : combosDisponibles) {
+			combo.mostarComponentesDelCombo();;
+		}
 	}
 
-	public ArrayList<Factura> getFacturas() {
-		return facturas;
+	// Métodos para buscar componentes y combos por número de serie
+
+	public Componente buscarComponentePorNumeroSerie(String numeroSerie) {
+		for (Componente componente : inventarioComponentes) {
+			if (componente.getNumeroSerie().equals(numeroSerie)) {
+				return componente;
+			}
+		}
+		return null; // Retorna null si el componente no se encuentra en el inventario
 	}
 
-	public void setFacturas(ArrayList<Factura> facturas) {
-		this.facturas = facturas;
+	public Combo buscarComboPorNumeroSerie(String numeroSerie) {
+		for (Combo combo : combosDisponibles) {
+			for (Componente componente : combo.getComponentesDelCombo()) {
+				if (componente.getNumeroSerie().equals(numeroSerie)) {
+					return combo;
+				}
+			}
+		}
+		return null; // Retorna null si el combo no se encuentra en los combos disponibles
 	}
 
-	public ArrayList<Combo> getCombos() {
-		return combos;
-	}
+	// Método para ensamblar un combo de componentes
 
-	public void setCombos(ArrayList<Combo> combos) {
-		this.combos = combos;
-	}
-	
+	public void ensamblarCombo(Combo combo) {
+		for (Componente componente : combo.getComponentesDelCombo()) {
+			if (!inventarioComponentes.contains(componente)) {
+				System.out.println("Error: Uno o más componentes del combo no están disponibles en el inventario.");
+				return;
+			}
+		}
 
+		// Si todos los componentes están disponibles, se ensambla el combo
+		System.out.println("Ensamblado del combo exitoso. Factura:");
+		for (Componente componente : combo.getComponentesDelCombo()) {
+			System.out.println(componente.getClass().getSimpleName() + " - " +
+					"Modelo: " + componente.getModelo() +
+					", Marca: " + componente.getMarca() +
+					", Precio: $" + componente.getPrecio());
+		}
+		System.out.println("Precio total del combo: $" + combo.getPrecioCombo());
+	}
 }

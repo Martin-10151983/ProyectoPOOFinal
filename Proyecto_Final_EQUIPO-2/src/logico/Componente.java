@@ -4,15 +4,15 @@ public class Componente {
 	protected String marca;
 	protected String modelo;
 	protected double precio;
-	protected int canditadDisponible;
+	protected int cantidadDisponible;
 	protected String numeroSerie;
 
-	public Componente(String marca, String modelo, double precio, int canditadDisponible, String numeroSerie) {
+	public Componente(String marca, String modelo, double precio, int cantidadDisponible, String numeroSerie) {
 		super();
 		this.marca = marca;
 		this.modelo = modelo;
 		this.precio = precio;
-		this.canditadDisponible = canditadDisponible;
+		this.cantidadDisponible = cantidadDisponible;
 		this.numeroSerie = numeroSerie;
 	}
 
@@ -40,12 +40,12 @@ public class Componente {
 		this.precio = precio;
 	}
 
-	public int getCanditadDisponible() {
-		return canditadDisponible;
+	public int getCantidadDisponible() {
+		return cantidadDisponible;
 	}
 
-	public void setCanditadDisponible(int canditadDisponible) {
-		this.canditadDisponible = canditadDisponible;
+	public void setCantidadDisponible(int cantidadDisponible) {
+		this.cantidadDisponible = cantidadDisponible;
 	}
 
 	public String getNumeroSerie() {

@@ -3,44 +3,39 @@ package logico;
 import java.util.ArrayList;
 
 public class TarjetaMadre extends Componente {
-	private Microprocesador tipoConectorM;
-	private Ram tipoRam;
-	private ArrayList<Disco> conexionDiscos;
-	
-	public TarjetaMadre(String marca, String modelo, double precio, int canditadDisponible, String numeroSerie,
-			Microprocesador tipoConectorM, Ram tipoRam) {
+	private String tipoConexionMicro;
+	private String tipoMemoriaRam;
+	private ArrayList<String> conexionesDiscosDuros;
+
+	public TarjetaMadre(String marca, String modelo, double precio, int canditadDisponible, String numeroSerie, String tipoConexionMicro, String tipoMemoriaRam, ArrayList<String> conexionesDiscosDuros) {
 		super(marca, modelo, precio, canditadDisponible, numeroSerie);
-		this.tipoConectorM = tipoConectorM;
-		this.tipoRam = tipoRam;
-		this.conexionDiscos = new ArrayList<>();
+		this.tipoConexionMicro = tipoConexionMicro;
+		this.tipoMemoriaRam = tipoMemoriaRam;
+		this.conexionesDiscosDuros = conexionesDiscosDuros;
 	}
 
-	public Microprocesador getTipoConectorM() {
-		return tipoConectorM;
+	public String getTipoConexionMicro() {
+		return tipoConexionMicro;
 	}
 
-	public void setTipoConectorM(Microprocesador tipoConectorM) {
-		this.tipoConectorM = tipoConectorM;
+	public void setTipoConexionMicro(String tipoConexionMicro) {
+		this.tipoConexionMicro = tipoConexionMicro;
 	}
 
-	public Ram getTipoRam() {
-		return tipoRam;
+	public String getTipoMemoriaRam() {
+		return tipoMemoriaRam;
 	}
 
-	public void setTipoRam(Ram tipoRam) {
-		this.tipoRam = tipoRam;
+	public void setTipoMemoriaRam(String tipoMemoriaRam) {
+		this.tipoMemoriaRam = tipoMemoriaRam;
 	}
 
-	public ArrayList<Disco> getConexionDiscos() {
-		return conexionDiscos;
+	public ArrayList<String> getConexionesDiscosDuros() {
+		return conexionesDiscosDuros;
 	}
 
-	public void setConexionDiscos(ArrayList<Disco> conexionDiscos) {
-		this.conexionDiscos = conexionDiscos;
+	public void setConexionesDiscosDuros(ArrayList<String> conexionesDiscosDuros) {
+		this.conexionesDiscosDuros = conexionesDiscosDuros;
 	}
-	
-	
-	
-	
 
 }

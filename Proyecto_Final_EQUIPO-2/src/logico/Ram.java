@@ -3,7 +3,7 @@ package logico;
 public class Ram extends Componente {
 	private String capacidadMemoria;
 	private String tipoMemoria;
-	
+
 	public Ram(String marca, String modelo, double precio, int canditadDisponible, String numeroSerie,
 			String capacidadMemoria, String tipoMemoria) {
 		super(marca, modelo, precio, canditadDisponible, numeroSerie);
@@ -26,5 +26,5 @@ public class Ram extends Componente {
 	public void setTipoMemoria(String tipoMemoria) {
 		this.tipoMemoria = tipoMemoria;
 	}
-	
+
 }

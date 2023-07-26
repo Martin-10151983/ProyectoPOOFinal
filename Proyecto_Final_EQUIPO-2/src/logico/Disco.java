@@ -1,21 +1,12 @@
 package logico;
 
 public class Disco extends Componente {
-	private String capacidadAlmacenamiento;
 	private String tipoConexion;
-	
-	public Disco(String marca, String modelo, double precio, int canditadDisponible, String numeroSerie,
-			String capacidadAlmacenamiento, String tipoConexion) {
+	private int capacidadAlmacenamiento;
+
+	public Disco(String marca, String modelo, double precio, int canditadDisponible, String numeroSerie, String tipoConexion, int capacidadAlmacenamiento) {
 		super(marca, modelo, precio, canditadDisponible, numeroSerie);
-		this.capacidadAlmacenamiento = capacidadAlmacenamiento;
 		this.tipoConexion = tipoConexion;
-	}
-
-	public String getCapacidadAlmacenamiento() {
-		return capacidadAlmacenamiento;
-	}
-
-	public void setCapacidadAlmacenamiento(String capacidadAlmacenamiento) {
 		this.capacidadAlmacenamiento = capacidadAlmacenamiento;
 	}
 
@@ -26,6 +17,13 @@ public class Disco extends Componente {
 	public void setTipoConexion(String tipoConexion) {
 		this.tipoConexion = tipoConexion;
 	}
-	
-		
+
+	public int getCapacidadAlmacenamiento() {
+		return capacidadAlmacenamiento;
+	}
+
+	public void setCapacidadAlmacenamiento(int capacidadAlmacenamiento) {
+		this.capacidadAlmacenamiento = capacidadAlmacenamiento;
+	}
+
 }

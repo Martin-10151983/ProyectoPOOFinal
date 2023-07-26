@@ -1,106 +1,78 @@
 package logico;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 class Factura {
-    private String id;
-    private Cliente dueñoFactura;
-    private ArrayList<Componente> componentes;
-    private Combo combo;
-    private double totalPagar;
-    private Date fecha;
+	private int clave_factura;
+	private Cliente cliente;
+	private ArrayList<Componente> componentesEscogidos;
+	private double precioFactura;
 
-    public Factura(String id, Cliente dueñoFactura, Date fecha) {
-        this.id = id;
-        this.dueñoFactura = dueñoFactura;
-        this.fecha = fecha;
-        this.componentes = new ArrayList<>();
-        this.combo = null;
-        this.totalPagar = 0;
-    }
+	public Factura(int clave_factura, Cliente cliente) {
+		super();
+		this.clave_factura = clave_factura;
+		this.cliente = cliente;
+		this.componentesEscogidos = new ArrayList<>();
+		this.precioFactura = 0.0;
+	}
 
-    public Factura(String id, Cliente dueñoFactura, Combo combo, Date fecha) {
-        this.id = id;
-        this.dueñoFactura = dueñoFactura;
-        this.combo = combo;
-        this.fecha = fecha;
-        this.componentes = combo.getComponentesIncluidos();
-        this.totalPagar = combo.getTotalPrecioCombo();
-    }
+	public int getClave_factura() {
+		return clave_factura;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public void setClave_factura(int clave_factura) {
+		this.clave_factura = clave_factura;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public Cliente getCliente() {
+		return cliente;
+	}
 
-    public Cliente getDueñoFactura() {
-        return dueñoFactura;
-    }
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 
-    public void setDueñoFactura(Cliente dueñoFactura) {
-        this.dueñoFactura = dueñoFactura;
-    }
+	public ArrayList<Componente> getComponentesEscogidos() {
+		return componentesEscogidos;
+	}
 
-    public ArrayList<Componente> getComponentes() {
-        return componentes;
-    }
+	public void setComponentesEscogidos(ArrayList<Componente> componentesEscogidos) {
+		this.componentesEscogidos = componentesEscogidos;
+	}
 
-    public void setComponentes(ArrayList<Componente> componentes) {
-        this.componentes = componentes;
-    }
+	public double getPrecioFactura() {
+		return precioFactura;
+	}
 
-    public Combo getCombo() {
-        return combo;
-    }
+	public void setPrecioFactura(double precioFactura) {
+		this.precioFactura = precioFactura;
+	}
 
-    public void setCombo(Combo combo) {
-        this.combo = combo;
-    }
+	public void agregarComponente(Componente componente) {
+		componentesEscogidos.add(componente);
+		precioFactura += componente.getPrecio();
+	}
 
-    public double getTotalPagar() {
-        return totalPagar;
-    }
+	public void ImprimirFactura() {
+		System.out.println("Factura N°: " + clave_factura);
+		System.out.println("Cliente: " + cliente.getNombre());
+		System.out.println("Direccion: " + cliente.getDireccion());
+		System.out.println("Telefono: " + cliente.getTelefono());
+		System.out.println("Correo Electronico: " + cliente.getEmail());
 
-    public void setTotalPagar(double totalPagar) {
-        this.totalPagar = totalPagar;
-    }
+		System.out.println("\nComponentes seleccionados ");
 
-    public Date getFecha() {
-        return fecha;
-    }
+		for (Componente componente : componentesEscogidos) {
+			System.out.println(componente.getClass().getSimpleName() + ": " + componente.getModelo());
+			System.out.println("Precio: $" + componente.getPrecio());
+			System.out.println("------------------------------");
+		}
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-    
-    public void agregarComponente(Componente componente, int cantidad) {
-        if (componente != null && cantidad > 0) {
-            for (int i = 0; i < cantidad; i++) {
-                componentes.add(componente);
-                totalPagar += componente.getPrecio();
-            }
-        }
-    }
+		System.out.println("TOTAL A PAGAR: $" + precioFactura);
 
-    public void mostrarDetallesFactura() {
-        System.out.println("Factura #" + id + " - Fecha: " + fecha);
-        System.out.println("Cliente: " + dueñoFactura.getNombre());
-        System.out.println("Componentes incluidos:");
-        for (Componente componente : componentes) {
-            System.out.println(componente.getMarca() + " " + componente.getModelo() +
-                    " - Precio: $" + componente.getPrecio());
-        }
-        if (combo != null) {
-            System.out.println("Combo incluido:");
-            for (Componente componenteCombo : combo.getComponentesIncluidos()) {
-                System.out.println(componenteCombo.getMarca() + " " + componenteCombo.getModelo() +
-                        " - Precio: $" + componenteCombo.getPrecio());
-            }
-        }
-        System.out.println("Total a pagar: $" + totalPagar);
-    }
+	}
+
+
+
+
 }

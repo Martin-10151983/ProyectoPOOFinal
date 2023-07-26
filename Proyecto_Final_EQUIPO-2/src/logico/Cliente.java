@@ -1,32 +1,17 @@
 package logico;
 
 public class Cliente {
-	private String id;
 	private String nombre;
-	private String cedula;
-	private String correoElectronico;
-	private String numeroTelefono;
 	private String direccion;
-	private String metodoPago;
-	
-	public Cliente(String id, String nombre, String cedula, String correoElectronico, String numeroTelefono,
-			String direccion, String metodoPago) {
+	private String telefono;
+	private String email;
+
+	public Cliente(String nombre, String direccion, String telefono, String email) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
-		this.cedula = cedula;
-		this.correoElectronico = correoElectronico;
-		this.numeroTelefono = numeroTelefono;
 		this.direccion = direccion;
-		this.metodoPago = metodoPago;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
+		this.telefono = telefono;
+		this.email = email;
 	}
 
 	public String getNombre() {
@@ -37,30 +22,6 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 
-	public String getCedula() {
-		return cedula;
-	}
-
-	public void setCedula(String cedula) {
-		this.cedula = cedula;
-	}
-
-	public String getCorreoElectronico() {
-		return correoElectronico;
-	}
-
-	public void setCorreoElectronico(String correoElectronico) {
-		this.correoElectronico = correoElectronico;
-	}
-
-	public String getNumeroTelefono() {
-		return numeroTelefono;
-	}
-
-	public void setNumeroTelefono(String numeroTelefono) {
-		this.numeroTelefono = numeroTelefono;
-	}
-
 	public String getDireccion() {
 		return direccion;
 	}
@@ -69,13 +30,21 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 
-	public String getMetodoPago() {
-		return metodoPago;
+	public String getTelefono() {
+		return telefono;
 	}
 
-	public void setMetodoPago(String metodoPago) {
-		this.metodoPago = metodoPago;
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 
 }

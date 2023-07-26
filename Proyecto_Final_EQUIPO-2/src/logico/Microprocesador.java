@@ -1,31 +1,31 @@
 package logico;
 
 public class Microprocesador extends Componente {
-	private String tipoConexion;
-	private String velocidadProcesamiento;
-	
+	private String tipoConectorMicro;
+	private double velocidadProcesamiento;
+
 	public Microprocesador(String marca, String modelo, double precio, int canditadDisponible, String numeroSerie,
-			String tipoConexion, String velocidadProcesamiento) {
+			String tipoConexion, double velocidadProcesamiento) {
 		super(marca, modelo, precio, canditadDisponible, numeroSerie);
-		this.tipoConexion = tipoConexion;
+		this.tipoConectorMicro = tipoConexion;
 		this.velocidadProcesamiento = velocidadProcesamiento;
 	}
 
 	public String getTipoConexion() {
-		return tipoConexion;
+		return tipoConectorMicro;
 	}
 
 	public void setTipoConexion(String tipoConexion) {
-		this.tipoConexion = tipoConexion;
+		this.tipoConectorMicro = tipoConexion;
 	}
 
-	public String getVelocidadProcesamiento() {
+	public double getVelocidadProcesamiento() {
 		return velocidadProcesamiento;
 	}
 
-	public void setVelocidadProcesamiento(String velocidadProcesamiento) {
+	public void setVelocidadProcesamiento(double velocidadProcesamiento) {
 		this.velocidadProcesamiento = velocidadProcesamiento;
 	}
-	
-	
+
+
 }
