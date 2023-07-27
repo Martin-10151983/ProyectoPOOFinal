@@ -31,7 +31,7 @@ public class Añadir_TarjetaMadre extends JDialog {
         super(parent, "Agregar Tarjeta Madre", true);
         this.tienda = tienda;
         this.conexionesDiscosDurosSeleccionadas = new ArrayList<>();
-        setSize(431, 281);
+        setSize(449, 269);
         setLocationRelativeTo(null);
         initComponents();
         

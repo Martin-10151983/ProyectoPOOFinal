@@ -111,6 +111,11 @@ public class Añadir_Disco extends JDialog {
         getContentPane().add(panel);
         
         JButton btnSalir = new JButton("Salir");
+        btnSalir.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
         btnSalir.setBounds(243, 273, 224, 34);
         panel.add(btnSalir);
     }
