@@ -9,7 +9,7 @@ public class Main {
 
         // Agregar algunos componentes al inventario
         Componente componente1 = new Microprocesador( "Intel", "i7", 150.0, 5, "SER123", "Socket AM4", 3.5);
-        Componente componente2 = new Ram("Corsair", "STATIC RAM", 80.0, 10, "RAM456", "8GB", "DDR4");
+        Componente componente2 = new Ram("Corsair", "STATIC RAM", 80.0, 10, "RAM456", 8, "DDR4");
         Componente componente3 = new Disco("Seagate", "ModeloXYZ", 120.0, 8, "DISK789", "SATA-3", 1000);
         miTienda.agregarComponente(componente1);
         miTienda.agregarComponente(componente2);

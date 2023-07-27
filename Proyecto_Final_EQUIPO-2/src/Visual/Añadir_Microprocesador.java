@@ -1,0 +1,123 @@
+package Visual;
+
+import javax.swing.*;
+
+import logico.Microprocesador;
+import logico.Tienda;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Añadir_Microprocesador extends JDialog {
+    private Tienda tienda;
+
+    private JTextField marcaField;
+    private JTextField modeloField;
+    private JTextField precioField;
+    private JTextField cantidadField;
+    private JTextField numeroSerieField;
+    private JTextField tipoConexionMicroField;
+    private JTextField velocidadProcesamientoField;
+
+    public Añadir_Microprocesador(InterfazPrincipal parent, Tienda tienda) {
+        super(parent, "Agregar Microprocesador", true);
+        setResizable(false);
+        this.tienda = tienda;
+
+        // Configurar el diálogo
+        setSize(472, 352);
+        setLocationRelativeTo(null);
+        initComponents();
+    }
+    
+    public void setTienda(Tienda tienda) {
+    	this.tienda = tienda;
+    }
+
+    private void initComponents() {
+        // Crear el contenido del diálogo para agregar un Microprocesador
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        JLabel label_Marca = new JLabel("Marca:");
+        label_Marca.setBounds(172, 11, 62, 24);
+        panel.add(label_Marca);
+        marcaField = new JTextField(20);
+        marcaField.setBounds(244, 11, 153, 24);
+        panel.add(marcaField);
+        JLabel label_Modelo = new JLabel("Modelo:");
+        label_Modelo.setBounds(172, 46, 62, 24);
+        panel.add(label_Modelo);
+        modeloField = new JTextField(20);
+        modeloField.setBounds(244, 46, 153, 24);
+        panel.add(modeloField);
+        JLabel label_Precio = new JLabel("Precio:");
+        label_Precio.setBounds(172, 81, 62, 24);
+        panel.add(label_Precio);
+        precioField = new JTextField(20);
+        precioField.setBounds(244, 81, 153, 24);
+        panel.add(precioField);
+        JLabel label_CantidadD = new JLabel("Cantidad Disponible:");
+        label_CantidadD.setBounds(110, 116, 124, 24);
+        panel.add(label_CantidadD);
+        cantidadField = new JTextField(20);
+        cantidadField.setBounds(244, 116, 153, 24);
+        panel.add(cantidadField);
+        JLabel label_NumeroS = new JLabel("Número de Serie:");
+        label_NumeroS.setBounds(122, 151, 112, 24);
+        panel.add(label_NumeroS);
+        numeroSerieField = new JTextField(20);
+        numeroSerieField.setBounds(244, 151, 153, 24);
+        panel.add(numeroSerieField);
+        JLabel label_Conexion = new JLabel("Tipo de Conexión Microprocesador:");
+        label_Conexion.setBounds(35, 186, 199, 24);
+        panel.add(label_Conexion);
+        tipoConexionMicroField = new JTextField(20);
+        tipoConexionMicroField.setBounds(244, 186, 153, 24);
+        panel.add(tipoConexionMicroField);
+        JLabel label_VelocidadP = new JLabel("Velocidad de Procesamiento:");
+        label_VelocidadP.setBounds(66, 221, 168, 24);
+        panel.add(label_VelocidadP);
+        velocidadProcesamientoField = new JTextField(20);
+        velocidadProcesamientoField.setBounds(244, 221, 153, 24);
+        panel.add(velocidadProcesamientoField);
+
+        // Botón para agregar el Microprocesador
+        JButton botonAgregar = new JButton("Agregar Microprocesador");
+        botonAgregar.setBounds(10, 275, 218, 37);
+        panel.add(botonAgregar);
+
+        // Evento al presionar el botón de agregar Microprocesador
+        botonAgregar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Obtener los valores de los campos
+                String marca = marcaField.getText();
+                String modelo = modeloField.getText();
+                double precio = Double.parseDouble(precioField.getText());
+                int cantidadDisponible = Integer.parseInt(cantidadField.getText());
+                String numeroSerie = numeroSerieField.getText();
+                String tipoConexionMicro = tipoConexionMicroField.getText();
+                double velocidadProcesamiento = Double.parseDouble(velocidadProcesamientoField.getText());
+
+                // Crear el objeto Microprocesador y agregarlo a la tienda
+                Microprocesador microprocesador = new Microprocesador(marca, modelo, precio, cantidadDisponible, numeroSerie, tipoConexionMicro, velocidadProcesamiento);
+                tienda.agregarComponente(microprocesador);
+                JOptionPane.showMessageDialog(Añadir_Microprocesador.this, "Microprocesador agregado exitosamente.", "Agregado", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+            }
+        });
+
+        // Mostrar el panel en el diálogo
+        getContentPane().add(panel);
+        
+        JButton btnSalir = new JButton("Salir");
+        btnSalir.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
+        btnSalir.setBounds(238, 275, 218, 37);
+        panel.add(btnSalir);
+    }
+}

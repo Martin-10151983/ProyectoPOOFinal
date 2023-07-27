@@ -11,7 +11,33 @@ public class Tienda {
 		this.combosDisponibles = new ArrayList<>();
 	}
 
+
+
 	// Métodos para gestionar el inventario de componentes
+
+	public ArrayList<Componente> getInventarioComponentes() {
+		return inventarioComponentes;
+	}
+
+
+
+	public void setInventarioComponentes(ArrayList<Componente> inventarioComponentes) {
+		this.inventarioComponentes = inventarioComponentes;
+	}
+
+
+
+	public ArrayList<Combo> getCombosDisponibles() {
+		return combosDisponibles;
+	}
+
+
+
+	public void setCombosDisponibles(ArrayList<Combo> combosDisponibles) {
+		this.combosDisponibles = combosDisponibles;
+	}
+
+
 
 	public void agregarComponente(Componente componente) {
 		inventarioComponentes.add(componente);
@@ -54,9 +80,9 @@ public class Tienda {
 
 	public Combo buscarComboPorNumeroSerie(String numeroSerie) {
 		for (Combo combo : combosDisponibles) {
-				if (combo.getNumeroSerie().equals(numeroSerie)) {
-					return combo;
-				}
+			if (combo.getNumeroSerie().equals(numeroSerie)) {
+				return combo;
+			}
 		}
 		return null; // Retorna null si el combo no se encuentra en los combos disponibles
 	}
