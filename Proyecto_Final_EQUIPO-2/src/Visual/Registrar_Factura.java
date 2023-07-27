@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
+import javax.swing.border.TitledBorder;
 
 public class Registrar_Factura extends JDialog {
 
@@ -37,11 +38,12 @@ public class Registrar_Factura extends JDialog {
 	 * Create the dialog.
 	 */
 	public Registrar_Factura() {
+		setResizable(false);
 		setModal(true);
 		setTitle("Factura");
 		setBounds(100, 100, 500, 300);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPanel.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		
@@ -70,6 +72,7 @@ public class Registrar_Factura extends JDialog {
 		contentPanel.add(lblNewLabel_2);
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{

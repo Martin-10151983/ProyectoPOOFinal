@@ -29,6 +29,7 @@ public class Registrar_Combo extends JDialog {
 	 * Create the dialog.
 	 */
 	public Registrar_Combo() {
+		setResizable(false);
 		setTitle("Combo");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
