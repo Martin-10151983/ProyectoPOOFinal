@@ -16,25 +16,24 @@ public class Añadir_Componente extends JDialog {
         this.tienda = tienda;
 
         // Configurar la ventana
-        setSize(400, 300);
+        setSize(400, 212);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         // Crear un panel para el contenido de la ventana
-        JPanel panel = new JPanel(new BorderLayout());
-
-        // Etiqueta para el título
-        JLabel labelTitulo = new JLabel("Agregar Componente");
-        panel.add(labelTitulo, BorderLayout.NORTH);
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
 
         // ComboBox para seleccionar el tipo de componente
         String[] tiposComponentes = {"Microprocesador", "Disco Duro", "Memoria RAM", "Tarjeta Madre"};
         DefaultComboBoxModel<String> modelTiposComponentes = new DefaultComboBoxModel<>(tiposComponentes);
         JComboBox<String> comboBoxTiposComponentes = new JComboBox<>(modelTiposComponentes);        
-        panel.add(comboBoxTiposComponentes, BorderLayout.CENTER);
+        comboBoxTiposComponentes.setBounds(201, 28, 144, 47);
+        panel.add(comboBoxTiposComponentes);
 
         // Botón para agregar el componente
         JButton botonAgregarComponente = new JButton("Agregar Componente");
-        panel.add(botonAgregarComponente, BorderLayout.SOUTH);
+        botonAgregarComponente.setBounds(10, 115, 178, 47);
+        panel.add(botonAgregarComponente);
 
         // Evento al seleccionar un tipo de componente
         comboBoxTiposComponentes.addActionListener(new ActionListener() {
@@ -54,7 +53,20 @@ public class Añadir_Componente extends JDialog {
         });
 
         // Mostrar el panel en la ventana
-        add(panel);
+        getContentPane().add(panel);
+        
+        JLabel lblNewLabel = new JLabel("Tipo de Componente");
+        lblNewLabel.setBounds(69, 28, 122, 47);
+        panel.add(lblNewLabel);
+        
+        JButton btnCancelar = new JButton("Cancelar");
+        btnCancelar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
+        btnCancelar.setBounds(196, 115, 178, 47);
+        panel.add(btnCancelar);
 
         // Centrar la ventana en la pantalla
         setLocationRelativeTo(null);
@@ -84,6 +96,4 @@ public class Añadir_Componente extends JDialog {
                 break;
         }
     }
-
-    // ...
 }

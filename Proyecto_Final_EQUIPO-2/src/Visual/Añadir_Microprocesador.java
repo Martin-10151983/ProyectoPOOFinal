@@ -22,7 +22,6 @@ public class Añadir_Microprocesador extends JDialog {
 
     public Añadir_Microprocesador(InterfazPrincipal parent, Tienda tienda) {
         super(parent, "Agregar Microprocesador", true);
-        setResizable(false);
         this.tienda = tienda;
 
         // Configurar el diálogo
@@ -40,51 +39,51 @@ public class Añadir_Microprocesador extends JDialog {
         JPanel panel = new JPanel();
         panel.setLayout(null);
         JLabel label_Marca = new JLabel("Marca:");
-        label_Marca.setBounds(172, 11, 62, 24);
+        label_Marca.setBounds(165, 11, 62, 24);
         panel.add(label_Marca);
         marcaField = new JTextField(20);
-        marcaField.setBounds(244, 11, 153, 24);
+        marcaField.setBounds(237, 11, 153, 24);
         panel.add(marcaField);
         JLabel label_Modelo = new JLabel("Modelo:");
-        label_Modelo.setBounds(172, 46, 62, 24);
+        label_Modelo.setBounds(165, 46, 62, 24);
         panel.add(label_Modelo);
         modeloField = new JTextField(20);
-        modeloField.setBounds(244, 46, 153, 24);
+        modeloField.setBounds(237, 46, 153, 24);
         panel.add(modeloField);
         JLabel label_Precio = new JLabel("Precio:");
-        label_Precio.setBounds(172, 81, 62, 24);
+        label_Precio.setBounds(165, 81, 62, 24);
         panel.add(label_Precio);
         precioField = new JTextField(20);
-        precioField.setBounds(244, 81, 153, 24);
+        precioField.setBounds(237, 81, 153, 24);
         panel.add(precioField);
         JLabel label_CantidadD = new JLabel("Cantidad Disponible:");
-        label_CantidadD.setBounds(110, 116, 124, 24);
+        label_CantidadD.setBounds(103, 116, 124, 24);
         panel.add(label_CantidadD);
         cantidadField = new JTextField(20);
-        cantidadField.setBounds(244, 116, 153, 24);
+        cantidadField.setBounds(237, 116, 153, 24);
         panel.add(cantidadField);
         JLabel label_NumeroS = new JLabel("Número de Serie:");
-        label_NumeroS.setBounds(122, 151, 112, 24);
+        label_NumeroS.setBounds(115, 151, 112, 24);
         panel.add(label_NumeroS);
         numeroSerieField = new JTextField(20);
-        numeroSerieField.setBounds(244, 151, 153, 24);
+        numeroSerieField.setBounds(237, 151, 153, 24);
         panel.add(numeroSerieField);
         JLabel label_Conexion = new JLabel("Tipo de Conexión Microprocesador:");
-        label_Conexion.setBounds(35, 186, 199, 24);
+        label_Conexion.setBounds(28, 186, 199, 24);
         panel.add(label_Conexion);
         tipoConexionMicroField = new JTextField(20);
-        tipoConexionMicroField.setBounds(244, 186, 153, 24);
+        tipoConexionMicroField.setBounds(237, 186, 153, 24);
         panel.add(tipoConexionMicroField);
         JLabel label_VelocidadP = new JLabel("Velocidad de Procesamiento:");
-        label_VelocidadP.setBounds(66, 221, 168, 24);
+        label_VelocidadP.setBounds(59, 221, 168, 24);
         panel.add(label_VelocidadP);
         velocidadProcesamientoField = new JTextField(20);
-        velocidadProcesamientoField.setBounds(244, 221, 153, 24);
+        velocidadProcesamientoField.setBounds(237, 221, 153, 24);
         panel.add(velocidadProcesamientoField);
 
         // Botón para agregar el Microprocesador
         JButton botonAgregar = new JButton("Agregar Microprocesador");
-        botonAgregar.setBounds(10, 275, 218, 37);
+        botonAgregar.setBounds(10, 265, 218, 37);
         panel.add(botonAgregar);
 
         // Evento al presionar el botón de agregar Microprocesador
@@ -117,7 +116,7 @@ public class Añadir_Microprocesador extends JDialog {
         		dispose();
         	}
         });
-        btnSalir.setBounds(238, 275, 218, 37);
+        btnSalir.setBounds(228, 265, 218, 37);
         panel.add(btnSalir);
     }
 }
