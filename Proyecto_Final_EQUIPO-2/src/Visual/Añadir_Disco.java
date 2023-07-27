@@ -22,6 +22,7 @@ public class Añadir_Disco extends JDialog {
 
     public Añadir_Disco(InterfazPrincipal parent, Tienda tienda) {
         super(parent, "Agregar Disco Duro", true);
+        setResizable(false);
         this.tienda = tienda;
 
         // Configurar el diálogo
@@ -38,47 +39,54 @@ public class Añadir_Disco extends JDialog {
         // Crear el contenido del diálogo para agregar un Disco Duro
         JPanel panel = new JPanel();
         panel.setLayout(null);
-        JLabel label = new JLabel("Marca:");
-        label.setBounds(133, 11, 116, 25);
-        panel.add(label);
+        JLabel labelMarca = new JLabel("Marca:");
+        labelMarca.setHorizontalAlignment(SwingConstants.RIGHT);
+        labelMarca.setBounds(133, 11, 116, 25);
+        panel.add(labelMarca);
         marcaField = new JTextField(20);
-        marcaField.setBounds(259, 11, 116, 25);
+        marcaField.setBounds(259, 11, 137, 25);
         panel.add(marcaField);
-        JLabel label_1 = new JLabel("Modelo:");
-        label_1.setBounds(133, 47, 116, 25);
-        panel.add(label_1);
+        JLabel labelModelo = new JLabel("Modelo:");
+        labelModelo.setHorizontalAlignment(SwingConstants.RIGHT);
+        labelModelo.setBounds(133, 47, 116, 25);
+        panel.add(labelModelo);
         modeloField = new JTextField(20);
-        modeloField.setBounds(259, 47, 116, 25);
+        modeloField.setBounds(259, 47, 137, 25);
         panel.add(modeloField);
-        JLabel label_2 = new JLabel("Precio:");
-        label_2.setBounds(133, 83, 116, 25);
-        panel.add(label_2);
+        JLabel labelPrecio = new JLabel("Precio:");
+        labelPrecio.setHorizontalAlignment(SwingConstants.RIGHT);
+        labelPrecio.setBounds(133, 83, 116, 25);
+        panel.add(labelPrecio);
         precioField = new JTextField(20);
-        precioField.setBounds(259, 83, 116, 25);
+        precioField.setBounds(259, 83, 137, 25);
         panel.add(precioField);
-        JLabel label_3 = new JLabel("Cantidad Disponible:");
-        label_3.setBounds(133, 119, 116, 25);
-        panel.add(label_3);
+        JLabel labelCantidadDis = new JLabel("Cantidad Disponible:");
+        labelCantidadDis.setHorizontalAlignment(SwingConstants.RIGHT);
+        labelCantidadDis.setBounds(133, 119, 116, 25);
+        panel.add(labelCantidadDis);
         cantidadField = new JTextField(20);
-        cantidadField.setBounds(259, 117, 116, 25);
+        cantidadField.setBounds(259, 117, 137, 25);
         panel.add(cantidadField);
-        JLabel label_4 = new JLabel("Número de Serie:");
-        label_4.setBounds(133, 155, 116, 25);
-        panel.add(label_4);
+        JLabel labelNumeroSerie = new JLabel("Número de Serie:");
+        labelNumeroSerie.setHorizontalAlignment(SwingConstants.RIGHT);
+        labelNumeroSerie.setBounds(133, 155, 116, 25);
+        panel.add(labelNumeroSerie);
         numeroSerieField = new JTextField(20);
-        numeroSerieField.setBounds(259, 153, 116, 25);
+        numeroSerieField.setBounds(259, 153, 137, 25);
         panel.add(numeroSerieField);
-        JLabel label_5 = new JLabel("Tipo de Conexión:");
-        label_5.setBounds(133, 191, 116, 25);
-        panel.add(label_5);
+        JLabel labelTipoConexion = new JLabel("Tipo de Conexión:");
+        labelTipoConexion.setHorizontalAlignment(SwingConstants.RIGHT);
+        labelTipoConexion.setBounds(133, 191, 116, 25);
+        panel.add(labelTipoConexion);
         tipoConexionField = new JTextField(20);
-        tipoConexionField.setBounds(259, 189, 116, 25);
+        tipoConexionField.setBounds(259, 189, 137, 25);
         panel.add(tipoConexionField);
-        JLabel label_6 = new JLabel("Capacidad de Almacenamiento:");
-        label_6.setBounds(77, 227, 172, 25);
-        panel.add(label_6);
+        JLabel labelCapacidad = new JLabel("Capacidad de Almacenamiento:");
+        labelCapacidad.setHorizontalAlignment(SwingConstants.RIGHT);
+        labelCapacidad.setBounds(68, 227, 181, 25);
+        panel.add(labelCapacidad);
         capacidadAlmacenamientoField = new JTextField(20);
-        capacidadAlmacenamientoField.setBounds(259, 227, 116, 25);
+        capacidadAlmacenamientoField.setBounds(259, 227, 137, 25);
         panel.add(capacidadAlmacenamientoField);
 
         // Botón para agregar el Disco Duro

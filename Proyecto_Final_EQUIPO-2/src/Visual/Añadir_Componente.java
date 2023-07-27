@@ -13,6 +13,7 @@ public class Añadir_Componente extends JDialog {
 
     public Añadir_Componente(InterfazPrincipal parent, Tienda tienda) {
         super(parent, "Añadir Componente", true);
+        setResizable(false);
         this.tienda = tienda;
 
         // Configurar la ventana
@@ -26,8 +27,8 @@ public class Añadir_Componente extends JDialog {
         // ComboBox para seleccionar el tipo de componente
         String[] tiposComponentes = {"Microprocesador", "Disco Duro", "Memoria RAM", "Tarjeta Madre"};
         DefaultComboBoxModel<String> modelTiposComponentes = new DefaultComboBoxModel<>(tiposComponentes);
-        JComboBox<String> comboBoxTiposComponentes = new JComboBox<>(modelTiposComponentes);        
-        comboBoxTiposComponentes.setBounds(201, 28, 144, 47);
+        JComboBox<String> comboBoxTiposComponentes = new JComboBox<>(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Microprocesador", "Disco Duro", "Memoria RAM", "Tarjeta Madre"}));        
+        comboBoxTiposComponentes.setBounds(196, 35, 144, 47);
         panel.add(comboBoxTiposComponentes);
 
         // Botón para agregar el componente
@@ -56,7 +57,8 @@ public class Añadir_Componente extends JDialog {
         getContentPane().add(panel);
         
         JLabel lblNewLabel = new JLabel("Tipo de Componente");
-        lblNewLabel.setBounds(69, 28, 122, 47);
+        lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblNewLabel.setBounds(64, 35, 122, 47);
         panel.add(lblNewLabel);
         
         JButton btnCancelar = new JButton("Cancelar");
@@ -70,6 +72,10 @@ public class Añadir_Componente extends JDialog {
 
         // Centrar la ventana en la pantalla
         setLocationRelativeTo(null);
+    }
+    
+    public void setTienda(Tienda tienda) {
+    	this.tienda = tienda;
     }
 
     private void abrirDialogoAgregarComponente(String tipoComponente) {
