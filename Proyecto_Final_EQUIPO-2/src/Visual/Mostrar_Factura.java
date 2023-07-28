@@ -51,9 +51,10 @@ public class Mostrar_Factura extends JDialog {
 				table = new JTable();
 				table.setModel(new DefaultTableModel(
 					new Object[][] {
+						{null, null, null, null, null, null},
 					},
 					new String[] {
-						"N\u00B0 Factura", "Cliente", "Tel\u00E9fono", "Direcci\u00F3n", "Email", "PagoTotal"
+						"N\u00B0 Factura", "Cliente", "Tel\u00E9fono", "Direcci\u00F3n", "Email", "Total $"
 					}
 				));
 				scrollPane.setViewportView(table);
