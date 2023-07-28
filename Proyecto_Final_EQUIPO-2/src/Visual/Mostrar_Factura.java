@@ -9,10 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Mostrar_Factura extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -31,7 +35,7 @@ public class Mostrar_Factura extends JDialog {
 	 * Create the dialog.
 	 */
 	public Mostrar_Factura() {
-		setTitle("Crear Factura");
+		setTitle("Ver Factura");
 		setResizable(false);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
@@ -40,14 +44,19 @@ public class Mostrar_Factura extends JDialog {
 		getContentPane().add(contentPanel);
 		contentPanel.setLayout(null);
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(0, 238, 444, 33);
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane);
+			JScrollPane scrollPane = new JScrollPane();
+			scrollPane.setBounds(0, 0, 444, 275);
+			contentPanel.add(scrollPane);
 			{
-				JButton cancelButton = new JButton("Cancelar");
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+				table = new JTable();
+				table.setModel(new DefaultTableModel(
+					new Object[][] {
+					},
+					new String[] {
+						"N\u00B0 Factura", "Cliente", "Tel\u00E9fono", "Direcci\u00F3n", "Email", "PagoTotal"
+					}
+				));
+				scrollPane.setViewportView(table);
 			}
 		}
 	}
