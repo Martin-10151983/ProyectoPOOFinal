@@ -9,6 +9,8 @@ import logico.Tienda;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Mostrar_Combo extends JDialog {
     private Tienda tienda;
@@ -17,32 +19,51 @@ public class Mostrar_Combo extends JDialog {
         super(parent, "Mostrar Combos Disponibles", true);
         this.tienda = tienda;
 
-        
+        // Configurar la ventana
         setSize(600, 400);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        
-        JPanel panel = new JPanel(new BorderLayout());
+        // Crear un panel para el contenido de la ventana
+        JPanel panel = new JPanel();
+        panel.setBounds(0, 0, 584, 361);
+        panel.setLayout(null);
 
-      
+        // Etiqueta para el título
         JLabel labelTitulo = new JLabel("Combos Disponibles");
-        panel.add(labelTitulo, BorderLayout.NORTH);
+        labelTitulo.setBounds(240, 0, 136, 27);
+        panel.add(labelTitulo);
 
-        
+        // Datos para la tabla
         String[] columnas = {"Nombre Combo", "Componentes"};
         Object[][] datos = obtenerDatosCombos();
 
-        
+        // Crear el modelo de la tabla con los datos
         DefaultTableModel modeloTabla = new DefaultTableModel(datos, columnas);
+        getContentPane().setLayout(null);
 
-       
+        // Crear la tabla con el modelo
         JTable tablaCombos = new JTable(modeloTabla);
-        panel.add(new JScrollPane(tablaCombos), BorderLayout.CENTER);
+        JScrollPane scrollPane = new JScrollPane(tablaCombos);
+        scrollPane.setBounds(0, 24, 584, 297);
+        panel.add(scrollPane);
 
-       
-        add(panel);
-
+        // Mostrar el panel en la ventana
+        getContentPane().add(panel);
         
+        Panel botonPanel = new Panel();
+        botonPanel.setBounds(0, 321, 584, 40);
+        panel.add(botonPanel);
+        botonPanel.setLayout(null);
+        
+        JButton btnSalir = new JButton("Salir");
+        btnSalir.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();        	}
+        });
+        btnSalir.setBounds(0, 0, 584, 40);
+        botonPanel.add(btnSalir);
+
+        // Centrar la ventana en la pantalla
         setLocationRelativeTo(null);
     }
 
@@ -62,7 +83,7 @@ public class Mostrar_Combo extends JDialog {
         for (Componente componente : componentes) {
             marcaModeloComponentes.append(componente.getMarca()).append(" ").append(componente.getModelo()).append(", ");
         }
-       
+        // Eliminar la última coma y espacio
         if (marcaModeloComponentes.length() > 2) {
             marcaModeloComponentes.setLength(marcaModeloComponentes.length() - 2);
         }
