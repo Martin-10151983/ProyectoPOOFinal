@@ -24,6 +24,7 @@ public class Editar_TarjetaMadre extends JDialog {
     public Editar_TarjetaMadre(Ver_Componente parent, TarjetaMadre tarjetaMadre) {
         super(parent, "Editar Tarjeta Madre", true);
         setResizable(false);
+        setSize(500, 490);
         this.tarjetaMadre = tarjetaMadre;
         initComponents();
     }

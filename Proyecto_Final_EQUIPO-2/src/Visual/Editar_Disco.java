@@ -2,6 +2,8 @@ package Visual;
 
 import javax.swing.*;
 import logico.Disco;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Editar_Disco extends JDialog {
     private Disco discoDuro;
@@ -17,6 +19,7 @@ public class Editar_Disco extends JDialog {
     public Editar_Disco(Ver_Componente parent, Disco discoDuro) {
         super(parent, "Editar Disco Duro", true);
         setResizable(false);
+        setSize(416, 347);
         this.discoDuro = discoDuro;
         initComponents();
     }
@@ -71,7 +74,7 @@ public class Editar_Disco extends JDialog {
 
         // Crear el panel principal
         JPanel mainPanel = new JPanel();
-        mainPanel.setBounds(0, 0, 395, 302);
+        mainPanel.setBounds(0, 0, 400, 308);
         mainPanel.setLayout(null);
         mainPanel.add(marcaLabel);
         mainPanel.add(marcaField);
@@ -93,11 +96,16 @@ public class Editar_Disco extends JDialog {
         
                 // Botón para guardar los cambios
                 JButton guardarButton = new JButton("Guardar");
-                guardarButton.setBounds(180, 268, 99, 23);
+                guardarButton.setBounds(182, 274, 99, 23);
                 mainPanel.add(guardarButton);
                 
                 JButton btnCancelar = new JButton("Cancelar");
-                btnCancelar.setBounds(286, 268, 99, 23);
+                btnCancelar.addActionListener(new ActionListener() {
+                	public void actionPerformed(ActionEvent e) {
+                		dispose();
+                	}
+                });
+                btnCancelar.setBounds(291, 274, 99, 23);
                 mainPanel.add(btnCancelar);
                 guardarButton.addActionListener(e -> guardarCambios());
 

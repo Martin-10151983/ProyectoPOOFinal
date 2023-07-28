@@ -5,6 +5,7 @@ import logico.Ram;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Editar_Ram extends JDialog {
     private Ram memoriaRAM;
@@ -15,11 +16,12 @@ public class Editar_Ram extends JDialog {
     private JTextField numeroSerieField;
     private JTextField capacidadField;
     private JComboBox<String> tipoMemoriaCombo;
-    private JButton button;
+    private JButton btnCancelar;
 
     public Editar_Ram(Ver_Componente parent, Ram memoriaRAM) {
         super(parent, "Editar Memoria RAM", true);
         setResizable(false);
+        setSize(446, 420);
         this.memoriaRAM = memoriaRAM;
         initComponents();
     }
@@ -95,9 +97,14 @@ public class Editar_Ram extends JDialog {
 
         getContentPane().add(panel);
         
-        button = new JButton("Guardar Cambios");
-        button.setBounds(229, 330, 195, 43);
-        panel.add(button);
+        btnCancelar = new JButton("Cancelar");
+        btnCancelar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
+        btnCancelar.setBounds(225, 330, 195, 43);
+        panel.add(btnCancelar);
 
         setLocationRelativeTo(null);
     }
