@@ -105,6 +105,12 @@ public class InterfazPrincipal extends JFrame {
 
 			// Mostrar la ventana principal
 			setLocationRelativeTo(null);
+			getContentPane().setLayout(null);
+			
+			JLabel lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon("C:\\Users\\HAYDEE PARRA TORIBIO\\Downloads\\Captura de pantalla 2023-07-28 161649.png"));
+			lblNewLabel.setBounds(0, 0, 503, 275);
+			getContentPane().add(lblNewLabel);
 			setVisible(true);
 		}
 
