@@ -53,16 +53,27 @@ public class InterfazPrincipal extends JFrame {
 			// Menú "Facturas"
 			JMenu menuFacturas = new JMenu("Facturas");
 			menuBar.add(menuFacturas);
-
-			// Submenú "Crear Factura"
-			JMenuItem menuItemCrearFactura = new JMenuItem("Crear Factura");
-			menuFacturas.add(menuItemCrearFactura);
-			menuItemCrearFactura.addActionListener(new ActionListener() {
-				@Override
+			
+			JMenuItem mntmNewMenuItem = new JMenuItem("Crear Factura");
+			mntmNewMenuItem.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					crearFactura();
+					Crear_Factura crearFactura = new Crear_Factura();
+					crearFactura.setModal(true);
+					crearFactura.setVisible(true);
 				}
 			});
+			menuFacturas.add(mntmNewMenuItem);
+			
+			JMenuItem mntmNewMenuItem_1 = new JMenuItem("Mostrar Factura");
+			mntmNewMenuItem_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Mostrar_Factura mostrarFactura = new Mostrar_Factura();
+					mostrarFactura.setModal(true);
+					mostrarFactura.setVisible(true);
+				}
+			});
+			menuFacturas.add(mntmNewMenuItem_1);
+			
 
 			// Menú "Combos"
 			JMenu menuCombos = new JMenu("Combos");
@@ -95,12 +106,6 @@ public class InterfazPrincipal extends JFrame {
 			// Mostrar la ventana principal
 			setLocationRelativeTo(null);
 			setVisible(true);
-		}
-
-
-		// Método para crear una factura
-		private void crearFactura() {
-			// Aquí implementar la lógica para crear una factura y agregarla a las facturas existentes
 		}
 
 		public static void main(String[] args) {
