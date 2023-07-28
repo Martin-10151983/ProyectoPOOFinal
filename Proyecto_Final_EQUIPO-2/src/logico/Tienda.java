@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class Tienda {
 	private ArrayList<Componente> inventarioComponentes;
 	private ArrayList<Combo> combosDisponibles;
+	private ArrayList<Cliente> misClientes;
 
 	public Tienda() {
 		this.inventarioComponentes = new ArrayList<>();
 		this.combosDisponibles = new ArrayList<>();
+		this.setMisClientes(new ArrayList<>());
 	}
 
 
@@ -41,6 +43,14 @@ public class Tienda {
 
 	public void agregarComponente(Componente componente) {
 		inventarioComponentes.add(componente);
+	}
+	
+	public ArrayList<Cliente> getMisClientes() {
+		return misClientes;
+	}
+
+	public void setMisClientes(ArrayList<Cliente> misClientes) {
+		this.misClientes = misClientes;
 	}
 	
 	public void eliminarComponente(Componente componente) {
@@ -123,6 +133,5 @@ public class Tienda {
 		}
 		System.out.println("Precio total del combo: $" + combo.getPrecioTotalCombo());
 	}
-	
 	
 }

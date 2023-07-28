@@ -64,7 +64,7 @@ public class InterfazPrincipal extends JFrame {
 			});
 			menuFacturas.add(mntmNewMenuItem);
 			
-			JMenuItem mntmNewMenuItem_1 = new JMenuItem("Mostrar Factura");
+			JMenuItem mntmNewMenuItem_1 = new JMenuItem("Mostrar Facturas");
 			mntmNewMenuItem_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					Mostrar_Factura mostrarFactura = new Mostrar_Factura();
