@@ -20,6 +20,8 @@ import javax.swing.JScrollBar;
 import java.awt.List;
 import javax.swing.JList;
 import java.awt.LayoutManager;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Crear_Factura extends JDialog {
 	private JTextField txtF;
@@ -76,6 +78,16 @@ public class Crear_Factura extends JDialog {
 		panel.add(comboBox);
 		
 		JButton btnNewButton = new JButton("Crear Cliente");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			Crear_Cliente crearCliente = new Crear_Cliente();
+			crearCliente.setModal(true);
+			crearCliente.setVisible(true);
+			}
+			
+		});
+		
+		
 		btnNewButton.setBounds(267, 66, 110, 23);
 		panel.add(btnNewButton);
 		
