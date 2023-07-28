@@ -30,17 +30,11 @@ public class Ver_Componente extends JDialog {
         llenarTabla();
     }
 
-<<<<<<< HEAD
+
     private String[] getColumnas() {
         return new String[]{"Tipo", "Marca", "Modelo", "Precio", "Cantidad Disponible", "Número de Serie"};
     }
-=======
-    private void initComponents() {
-        String[] columnas = {"Tipo", "Marca", "Modelo", "Precio", "Cantidad Disponible", "Número de Serie"};
-        modeloTabla = new DefaultTableModel(columnas, 0);
-        tabla = new JTable(modeloTabla);
-        tabla.setBackground(SystemColor.inactiveCaptionBorder);
->>>>>>> branch 'main' of https://github.com/Martin-10151983/ProyectoPOOFinal.git
+
 
     private void llenarTabla() {
         modeloTabla.setRowCount(0);
