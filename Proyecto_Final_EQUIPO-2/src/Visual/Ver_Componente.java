@@ -97,11 +97,11 @@ public class Ver_Componente extends JDialog {
             componenteTemporal.setCantidadDisponible(cantidad);
             componenteTemporal.setNumeroSerie(numeroSerie);
 
-            // Agregamos el componente modificado a la lista de cambios pendientes
+           
             cambiosPendientes.add(componenteTemporal);
         }
 
-        // Aplicamos los cambios pendientes a la lista original
+       
         for (Componente componenteModificado : cambiosPendientes) {
             int index = componentesTemporales.indexOf(componenteModificado);
             if (index != -1) {
@@ -114,23 +114,23 @@ public class Ver_Componente extends JDialog {
             }
         }
 
-        // Limpiamos la lista de cambios pendientes
+        
         cambiosPendientes.clear();
 
-        // Refrescar la tabla
+        
         modeloTabla.fireTableDataChanged();
 
         JOptionPane.showMessageDialog(this, "Cambios guardados correctamente.", "Guardar Cambios", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void cancelarCambios(ActionEvent e) {
-        // Restaurar los componentes a su estado original
+        
         componentesTemporales = clonarLista(tienda.getInventarioComponentes());
 
-        // Limpiamos la lista de cambios pendientes al cancelar
+      
         cambiosPendientes.clear();
 
-        // Refrescar la tabla
+        
         modeloTabla.fireTableDataChanged();
 
         JOptionPane.showMessageDialog(this, "Cambios descartados.", "Cancelar Cambios", JOptionPane.INFORMATION_MESSAGE);

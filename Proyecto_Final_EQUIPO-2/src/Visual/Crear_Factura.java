@@ -137,6 +137,10 @@ public class Crear_Factura extends JDialog {
 		panel_1.add(btnNewButton);
 		
 		JButton btnFacturar = new JButton("Facturar");
+		btnFacturar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnFacturar.setBounds(236, 7, 89, 23);
 		panel_1.add(btnFacturar);
 		

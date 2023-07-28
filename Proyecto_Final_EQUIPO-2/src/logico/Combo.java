@@ -21,7 +21,7 @@ public class Combo {
         return total;
     }
 
-    // Getters para los atributos de ComboComponentes
+    
     public String getNumeroSerie() {
         return numeroSerie;
     }
@@ -34,7 +34,7 @@ public class Combo {
         return precioTotalCombo;
     }
 
-    // Método para mostrar los componentes incluidos en el combo
+   
     public void mostrarComponentesDelCombo() {
         System.out.println("Combo: " + numeroSerie);
         System.out.println("Componentes incluidos:");

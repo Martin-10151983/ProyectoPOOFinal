@@ -20,18 +20,18 @@ public class Crear_Combo extends JDialog {
         this.tienda = tienda;
         this.componentesSeleccionados = new ArrayList<>();
 
-        // Configurar la ventana
+        
         setSize(509, 370);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        // Crear un panel para el contenido de la ventana
+      
         JPanel panel = new JPanel(new BorderLayout());
 
-        // Etiqueta para el título
+       
         JLabel labelTitulo = new JLabel("Ensamblar Nuevo Combo");
         panel.add(labelTitulo, BorderLayout.NORTH);
 
-        // Lista para mostrar los componentes disponibles para seleccionar
+       
         DefaultListModel<Componente> listaModel = new DefaultListModel<>();
         for (Componente componente : tienda.getInventarioComponentes()) {
             listaModel.addElement(componente);
@@ -39,7 +39,7 @@ public class Crear_Combo extends JDialog {
         JList<Componente> listaComponentes = new JList<>(listaModel);
         panel.add(new JScrollPane(listaComponentes), BorderLayout.CENTER);
 
-        // Botón para agregar el componente seleccionado al combo en ensamblaje
+        
         JButton botonAgregarComponente = new JButton("Agregar Componente");
         panel.add(botonAgregarComponente, BorderLayout.EAST);
         botonAgregarComponente.addActionListener(new ActionListener() {
@@ -55,7 +55,7 @@ public class Crear_Combo extends JDialog {
             }
         });
 
-        // Botón para ensamblar el combo y agregarlo a los combos disponibles
+        
         JButton botonEnsamblarCombo = new JButton("Ensamblar y Agregar Combo");
         panel.add(botonEnsamblarCombo, BorderLayout.SOUTH);
         botonEnsamblarCombo.addActionListener(new ActionListener() {
@@ -65,10 +65,10 @@ public class Crear_Combo extends JDialog {
             }
         });
 
-        // Mostrar el panel en la ventana
+        
         getContentPane().add(panel);
 
-        // Centrar la ventana en la pantalla
+       
         setLocationRelativeTo(null);
     }
 
@@ -80,10 +80,10 @@ public class Crear_Combo extends JDialog {
 
             JOptionPane.showMessageDialog(this, "Combo ensamblado y agregado a la lista de combos disponibles.");
 
-            // Reiniciar la lista de componentes seleccionados para ensamblar el próximo combo
+           
             componentesSeleccionados.clear();
 
-            // Cerrar el diálogo después de agregar el combo
+          
             dispose();
         } else {
             JOptionPane.showMessageDialog(this, "No ha seleccionado componentes para ensamblar el combo.");
@@ -91,9 +91,7 @@ public class Crear_Combo extends JDialog {
     }
 
     private String generarNumeroSerieCombo() {
-        // Implementar la lógica para generar un número de serie único para el nuevo combo
-        // Aquí puedes usar UUID o cualquier otro método para generar el número de serie
-        // Por simplicidad, en este ejemplo usaremos un número aleatorio.
+       
         return "COMBO-" + (int) (Math.random() * 1000);
     }
 }

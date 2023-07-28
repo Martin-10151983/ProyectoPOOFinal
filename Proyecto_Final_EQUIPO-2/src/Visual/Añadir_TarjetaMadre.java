@@ -45,7 +45,7 @@ public class Añadir_TarjetaMadre extends JDialog {
 	}
 
 	private void initComponents() {
-		// Crear el contenido del diálogo para agregar una Tarjeta Madre
+		
 		panel = new JPanel();
 		panel.setLayout(null);
 		JLabel label_6 = new JLabel("Marca:");
@@ -111,16 +111,16 @@ public class Añadir_TarjetaMadre extends JDialog {
 		sata3CheckBox.setBounds(276, 330, 114, 30);
 		panel.add(sata3CheckBox);
 
-		// Botón para agregar la Tarjeta Madre
+		
 		JButton botonAgregar = new JButton("Agregar Tarjeta Madre");
 		botonAgregar.setBounds(10, 384, 247, 36);
 		panel.add(botonAgregar);
 
-		// Evento al presionar el botón de agregar Tarjeta Madre
+		
 		botonAgregar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Obtener los valores de los campos
+				
 				String marca = marcaField.getText();
 				String modelo = modeloField.getText();
 				double precio = Double.parseDouble(precioField.getText());
@@ -129,7 +129,7 @@ public class Añadir_TarjetaMadre extends JDialog {
 				String tipoConexionMicroprocesador = tipoConexionMicroprocesadorField.getText();
 				String tipoMemoriaRam = tipoMemoriaRamField.getText();
 
-				// Obtener las conexiones de discos duros seleccionadas
+				
 				conexionesDiscosDurosSeleccionadas.clear();
 				if (sataCheckBox.isSelected()) {
 					conexionesDiscosDurosSeleccionadas.add("SATA");
@@ -141,7 +141,7 @@ public class Añadir_TarjetaMadre extends JDialog {
 					conexionesDiscosDurosSeleccionadas.add("SATA-3");
 				}
 
-				// Crear el objeto Tarjeta Madre y agregarlo a la tienda
+				
 				TarjetaMadre tarjetaMadre = new TarjetaMadre(marca, modelo, precio, cantidadDisponible, numeroSerie,
 						tipoConexionMicroprocesador, tipoMemoriaRam, conexionesDiscosDurosSeleccionadas);
 				tienda.agregarComponente(tarjetaMadre);
