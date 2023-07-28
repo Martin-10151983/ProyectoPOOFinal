@@ -57,6 +57,9 @@ public class InterfazPrincipal extends JFrame {
 			// Submenú "Crear Factura"
 			JMenuItem menuItemCrearFactura = new JMenuItem("Crear Factura");
 			menuFacturas.add(menuItemCrearFactura);
+			
+			JMenuItem mntmNewMenuItem = new JMenuItem("Mostrar factura");
+			menuFacturas.add(mntmNewMenuItem);
 			menuItemCrearFactura.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
