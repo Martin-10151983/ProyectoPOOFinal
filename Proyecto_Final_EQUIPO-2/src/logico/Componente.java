@@ -55,5 +55,13 @@ public class Componente {
 	public void setNumeroSerie(String numeroSerie) {
 		this.numeroSerie = numeroSerie;
 	}
+	
+	public Componente(Componente otroComponente) {
+		this.marca = otroComponente.marca;
+		this.modelo = otroComponente.modelo;
+		this.precio = otroComponente.precio;
+		this.cantidadDisponible = otroComponente.cantidadDisponible;
+		this.numeroSerie = otroComponente.numeroSerie;
+	}
 
 }

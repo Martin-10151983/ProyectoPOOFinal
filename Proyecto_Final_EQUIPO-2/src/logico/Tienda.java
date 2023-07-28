@@ -42,6 +42,22 @@ public class Tienda {
 	public void agregarComponente(Componente componente) {
 		inventarioComponentes.add(componente);
 	}
+	
+	public void eliminarComponente(Componente componente) {
+		for(Combo combo : combosDisponibles) {
+			if(combo.getComponentesIncluidos().contains(componente)) {
+				combo.eliminarComponente(componente);
+			}
+		}
+		inventarioComponentes.remove(componente);
+		
+		for (int i = combosDisponibles.size() - 1; i >= 0; i--) {
+            Combo combo = combosDisponibles.get(i);
+            if (combo.getComponentesIncluidos().isEmpty()) {
+                combosDisponibles.remove(i);
+            }
+        }
+	}
 
 	public void mostrarInventarioComponentes() {
 		System.out.println("Inventario de Componentes:");
@@ -107,4 +123,6 @@ public class Tienda {
 		}
 		System.out.println("Precio total del combo: $" + combo.getPrecioTotalCombo());
 	}
+	
+	
 }

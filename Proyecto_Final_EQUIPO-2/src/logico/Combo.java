@@ -47,4 +47,8 @@ public class Combo {
         System.out.println("Precio total del combo: $" + precioTotalCombo);
         System.out.println();
     }
+    
+    public void eliminarComponente(Componente componente) {
+    	componentesIncluidos.remove(componente);
+    }
 }
