@@ -30,7 +30,6 @@ public class Editar_TarjetaMadre extends JDialog {
 
     private void initComponents() {
         JPanel panel = new JPanel();
-        panel.setBounds(0, 0, 484, 449);
         panel.setLayout(null);
 
         JLabel label = new JLabel("Marca:");
@@ -109,7 +108,7 @@ public class Editar_TarjetaMadre extends JDialog {
         JButton guardarButton = new JButton("Guardar ");
         guardarButton.setBounds(248, 412, 108, 29);
         guardarButton.addActionListener(this::guardarCambios);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new BorderLayout(0, 0));
         panel.add(guardarButton);
 
         getContentPane().add(panel);

@@ -19,13 +19,13 @@ public class Editar_Ram extends JDialog {
 
     public Editar_Ram(Ver_Componente parent, Ram memoriaRAM) {
         super(parent, "Editar Memoria RAM", true);
+        setResizable(false);
         this.memoriaRAM = memoriaRAM;
         initComponents();
     }
 
     private void initComponents() {
         JPanel panel = new JPanel();
-        panel.setBounds(0, 0, 434, 384);
         panel.setLayout(null);
 
         JLabel label = new JLabel("Marca:");
@@ -90,7 +90,7 @@ public class Editar_Ram extends JDialog {
         JButton guardarButton = new JButton("Guardar Cambios");
         guardarButton.setBounds(10, 330, 195, 43);
         guardarButton.addActionListener(this::guardarCambios);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new BorderLayout(0, 0));
         panel.add(guardarButton);
 
         getContentPane().add(panel);

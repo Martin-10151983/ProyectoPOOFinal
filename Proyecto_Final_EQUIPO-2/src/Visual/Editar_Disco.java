@@ -1,8 +1,5 @@
 package Visual;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-
 import javax.swing.*;
 import logico.Disco;
 
@@ -70,22 +67,11 @@ public class Editar_Disco extends JDialog {
 
         // Cargar la información del Disco Duro en los campos de texto
         cargarInformacionDiscoDuro();
-
-        // Botón para guardar los cambios
-        JButton guardarButton = new JButton("Guardar");
-        guardarButton.setBounds(167, 5, 99, 23);
-        guardarButton.addActionListener(e -> guardarCambios());
-
-        // Panel para contener los botones
-        JPanel botonesPanel = new JPanel();
-        botonesPanel.setBounds(0, 259, 385, 33);
-        botonesPanel.setLayout(null);
-        botonesPanel.add(guardarButton);
         getContentPane().setLayout(null);
 
         // Crear el panel principal
         JPanel mainPanel = new JPanel();
-        mainPanel.setBounds(0, 0, 385, 259);
+        mainPanel.setBounds(0, 0, 395, 302);
         mainPanel.setLayout(null);
         mainPanel.add(marcaLabel);
         mainPanel.add(marcaField);
@@ -104,11 +90,16 @@ public class Editar_Disco extends JDialog {
 
         // Mostrar el panel en el diálogo
         getContentPane().add(mainPanel);
-        getContentPane().add(botonesPanel);
         
-        JButton btnCancelar = new JButton("Cancelar");
-        btnCancelar.setBounds(276, 5, 99, 23);
-        botonesPanel.add(btnCancelar);
+                // Botón para guardar los cambios
+                JButton guardarButton = new JButton("Guardar");
+                guardarButton.setBounds(180, 268, 99, 23);
+                mainPanel.add(guardarButton);
+                
+                JButton btnCancelar = new JButton("Cancelar");
+                btnCancelar.setBounds(286, 268, 99, 23);
+                mainPanel.add(btnCancelar);
+                guardarButton.addActionListener(e -> guardarCambios());
 
         // Establecer el tamaño y la posición del diálogo
         setLocationRelativeTo(null); // Centrar el diálogo en la pantalla
