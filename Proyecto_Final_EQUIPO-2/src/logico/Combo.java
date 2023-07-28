@@ -48,7 +48,7 @@ public class Combo {
         System.out.println();
     }
     
-    public void eliminarComponente(Componente componente) {
-    	componentesIncluidos.remove(componente);
+    public void eliminarComponente(int filaSeleccionada) {
+    	componentesIncluidos.remove(filaSeleccionada);
     }
 }

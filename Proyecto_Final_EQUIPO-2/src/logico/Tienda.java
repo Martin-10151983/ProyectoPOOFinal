@@ -53,13 +53,13 @@ public class Tienda {
 		this.misClientes = misClientes;
 	}
 	
-	public void eliminarComponente(Componente componente) {
+	public void eliminarComponente(int filaSeleccionada) {
 		for(Combo combo : combosDisponibles) {
-			if(combo.getComponentesIncluidos().contains(componente)) {
-				combo.eliminarComponente(componente);
+			if(combo.getComponentesIncluidos().contains(filaSeleccionada)) {
+				combo.eliminarComponente(filaSeleccionada);
 			}
 		}
-		inventarioComponentes.remove(componente);
+		inventarioComponentes.remove(filaSeleccionada);
 		
 		for (int i = combosDisponibles.size() - 1; i >= 0; i--) {
             Combo combo = combosDisponibles.get(i);
