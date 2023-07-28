@@ -13,20 +13,20 @@ public class InterfazPrincipal extends JFrame {
 	public InterfazPrincipal(Tienda tienda) {
 		this.tienda = tienda;
 
-		// Configurar la ventana
+	
 		setTitle("Tienda de Computadoras");
 		setSize(519, 335);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		// Crear el menú principal
+		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
-		// Menú "Componentes"
+		
 		JMenu menuComponentes = new JMenu("Componentes");
 		menuBar.add(menuComponentes);
 
-		// Submenú "Mostrar Componentes Disponibles"
+		
 		JMenuItem menuItemMostrarComponentes = new JMenuItem("Mostrar Componentes Disponibles");
 		menuComponentes.add(menuItemMostrarComponentes);
 		
@@ -50,7 +50,7 @@ public class InterfazPrincipal extends JFrame {
 
 		
 
-			// Menú "Facturas"
+			
 			JMenu menuFacturas = new JMenu("Facturas");
 			menuBar.add(menuFacturas);
 			
@@ -75,11 +75,11 @@ public class InterfazPrincipal extends JFrame {
 			menuFacturas.add(mntmNewMenuItem_1);
 			
 
-			// Menú "Combos"
+			
 			JMenu menuCombos = new JMenu("Combos");
 			menuBar.add(menuCombos);
 
-			// Submenú "Mostrar Combos Disponibles"
+			
 			JMenuItem menuItemMostrarCombos = new JMenuItem("Mostrar Combos Disponibles");
 			menuCombos.add(menuItemMostrarCombos);
 			menuItemMostrarCombos.addActionListener(new ActionListener() {
@@ -91,7 +91,7 @@ public class InterfazPrincipal extends JFrame {
 				}
 			});
 
-			// Submenú "Crear Combo"
+			
 			JMenuItem menuItemCrearCombo = new JMenuItem("Crear Combo");
 			menuCombos.add(menuItemCrearCombo);
 			menuItemCrearCombo.addActionListener(new ActionListener() {
@@ -103,8 +103,14 @@ public class InterfazPrincipal extends JFrame {
 				}
 			});
 
-			// Mostrar la ventana principal
+			
 			setLocationRelativeTo(null);
+			getContentPane().setLayout(null);
+			
+			JLabel lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon("C:\\Users\\HAYDEE PARRA TORIBIO\\Downloads\\Captura de pantalla 2023-07-28 161649.png"));
+			lblNewLabel.setBounds(0, 0, 503, 275);
+			getContentPane().add(lblNewLabel);
 			setVisible(true);
 		}
 

@@ -25,7 +25,7 @@ public class Añadir_Microprocesador extends JDialog {
         setResizable(false);
         this.tienda = tienda;
 
-        // Configurar el diálogo
+       
         setSize(500, 375);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -37,7 +37,7 @@ public class Añadir_Microprocesador extends JDialog {
     }
 
     private void initComponents() {
-        // Crear el contenido del diálogo para agregar un Microprocesador
+       
         JPanel panel = new JPanel();
         panel.setLayout(null);
         JLabel label_Marca = new JLabel("Marca:");
@@ -90,16 +90,16 @@ public class Añadir_Microprocesador extends JDialog {
         velocidadProcesamientoField.setBounds(241, 221, 153, 24);
         panel.add(velocidadProcesamientoField);
 
-        // Botón para agregar el Microprocesador
+       
         JButton botonAgregar = new JButton("Agregar Microprocesador");
         botonAgregar.setBounds(10, 288, 227, 37);
         panel.add(botonAgregar);
 
-        // Evento al presionar el botón de agregar Microprocesador
+      
         botonAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Obtener los valores de los campos
+                
                 String marca = marcaField.getText();
                 String modelo = modeloField.getText();
                 double precio = Double.parseDouble(precioField.getText());
@@ -108,7 +108,7 @@ public class Añadir_Microprocesador extends JDialog {
                 String tipoConexionMicro = tipoConexionMicroField.getText();
                 double velocidadProcesamiento = Double.parseDouble(velocidadProcesamientoField.getText());
 
-                // Crear el objeto Microprocesador y agregarlo a la tienda
+               
                 Microprocesador microprocesador = new Microprocesador(marca, modelo, precio, cantidadDisponible, numeroSerie, tipoConexionMicro, velocidadProcesamiento);
                 tienda.agregarComponente(microprocesador);
                 JOptionPane.showMessageDialog(Añadir_Microprocesador.this, "Microprocesador agregado exitosamente.", "Agregado", JOptionPane.INFORMATION_MESSAGE);
@@ -116,7 +116,7 @@ public class Añadir_Microprocesador extends JDialog {
             }
         });
 
-        // Mostrar el panel en el diálogo
+       
         getContentPane().add(panel);
         
         JButton btnSalir = new JButton("Salir");

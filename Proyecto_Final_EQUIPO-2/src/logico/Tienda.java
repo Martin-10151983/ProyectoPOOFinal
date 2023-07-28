@@ -15,7 +15,7 @@ public class Tienda {
 
 
 
-	// Métodos para gestionar el inventario de componentes
+	
 
 	public ArrayList<Componente> getInventarioComponentes() {
 		return inventarioComponentes;
@@ -93,7 +93,6 @@ public class Tienda {
 		}
 	}
 
-	// Métodos para buscar componentes y combos por número de serie
 
 	public Componente buscarComponentePorNumeroSerie(String numeroSerie) {
 		for (Componente componente : inventarioComponentes) {
@@ -101,7 +100,7 @@ public class Tienda {
 				return componente;
 			}
 		}
-		return null; // Retorna null si el componente no se encuentra en el inventario
+		return null; 
 	}
 
 	public Combo buscarComboPorNumeroSerie(String numeroSerie) {
@@ -110,10 +109,10 @@ public class Tienda {
 				return combo;
 			}
 		}
-		return null; // Retorna null si el combo no se encuentra en los combos disponibles
+		return null; 
 	}
 
-	// Método para ensamblar un combo de componentes
+	
 
 	public void ensamblarCombo(Combo combo) {
 		for (Componente componente : combo.getComponentesIncluidos()) {
@@ -123,7 +122,7 @@ public class Tienda {
 			}
 		}
 
-		// Si todos los componentes están disponibles, se ensambla el combo
+		
 		System.out.println("Ensamblado del combo exitoso. Factura:");
 		for (Componente componente : combo.getComponentesIncluidos()) {
 			System.out.println(componente.getClass().getSimpleName() + " - " +

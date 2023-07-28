@@ -26,7 +26,7 @@ public class Añadir_Ram extends JDialog {
         setResizable(false);
         this.tienda = tienda;
 
-        // Configurar el diálogo
+        
         setSize(515, 403);
         setLocationRelativeTo(null);
         initComponents();
@@ -37,7 +37,7 @@ public class Añadir_Ram extends JDialog {
     }
 
     private void initComponents() {
-        // Crear el contenido del diálogo para agregar una Memoria RAM
+        
         JPanel panel = new JPanel();
         panel.setLayout(null);
         JLabel label = new JLabel("Marca:");
@@ -87,16 +87,16 @@ public class Añadir_Ram extends JDialog {
         label_6.setBounds(133, 246, 102, 27);
         panel.add(label_6);
 
-        // Botón para agregar la Memoria RAM
+      
         JButton botonAgregar = new JButton("Agregar Memoria RAM");
         botonAgregar.setBounds(10, 315, 232, 37);
         panel.add(botonAgregar);
 
-        // Evento al presionar el botón de agregar Memoria RAM
+        
         botonAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Obtener los valores de los campos
+                
                 String marca = marcaField.getText();
                 String modelo = modeloField.getText();
                 double precio = Double.parseDouble(precioField.getText());
@@ -105,7 +105,7 @@ public class Añadir_Ram extends JDialog {
                 int capacidadMemoria = Integer.parseInt(capacidadMemoriaField.getText());
                 String tipoMemoria = comboBoxTipoMemoria.getSelectedItem().toString();
 
-                // Crear el objeto Memoria RAM y agregarlo a la tienda
+               
                 Ram memoriaRAM = new Ram(marca, modelo, precio, cantidadDisponible, numeroSerie, capacidadMemoria, tipoMemoria);
                 tienda.agregarComponente(memoriaRAM);
                 JOptionPane.showMessageDialog(Añadir_Ram.this, "Memoria RAM agregada exitosamente.", "Agregado", JOptionPane.INFORMATION_MESSAGE);
@@ -113,7 +113,7 @@ public class Añadir_Ram extends JDialog {
             }
         });
 
-        // Mostrar el panel en el diálogo
+       
         getContentPane().add(panel);
         
         btnSalir = new JButton("Salir");

@@ -25,7 +25,7 @@ public class Añadir_Disco extends JDialog {
         setResizable(false);
         this.tienda = tienda;
 
-        // Configurar el diálogo
+        
         setSize(493, 357);
         setLocationRelativeTo(null);
         initComponents();
@@ -36,7 +36,7 @@ public class Añadir_Disco extends JDialog {
     }
 
     private void initComponents() {
-        // Crear el contenido del diálogo para agregar un Disco Duro
+        
         JPanel panel = new JPanel();
         panel.setLayout(null);
         JLabel labelMarca = new JLabel("Marca:");
@@ -89,16 +89,16 @@ public class Añadir_Disco extends JDialog {
         capacidadAlmacenamientoField.setBounds(259, 227, 137, 25);
         panel.add(capacidadAlmacenamientoField);
 
-        // Botón para agregar el Disco Duro
+        
         JButton botonAgregar = new JButton("Agregar Disco Duro");
         botonAgregar.setBounds(10, 273, 224, 34);
         panel.add(botonAgregar);
 
-        // Evento al presionar el botón de agregar Disco Duro
+       
         botonAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Obtener los valores de los campos
+                
                 String marca = marcaField.getText();
                 String modelo = modeloField.getText();
                 double precio = Double.parseDouble(precioField.getText());
@@ -107,7 +107,7 @@ public class Añadir_Disco extends JDialog {
                 String tipoConexion = tipoConexionField.getText();
                 int capacidadAlmacenamiento = Integer.parseInt(capacidadAlmacenamientoField.getText());
 
-                // Crear el objeto Disco Duro y agregarlo a la tienda
+               
                 Disco discoDuro = new Disco(marca, modelo, precio, cantidadDisponible, numeroSerie, tipoConexion, capacidadAlmacenamiento);
                 tienda.agregarComponente(discoDuro);
                 JOptionPane.showMessageDialog(Añadir_Disco.this, "Disco Duro agregado exitosamente.", "Agregado", JOptionPane.INFORMATION_MESSAGE);
@@ -115,7 +115,7 @@ public class Añadir_Disco extends JDialog {
             }
         });
 
-        // Mostrar el panel en el diálogo
+       
         getContentPane().add(panel);
         
         JButton btnSalir = new JButton("Salir");
