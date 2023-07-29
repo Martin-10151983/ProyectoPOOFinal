@@ -17,6 +17,7 @@ public class Mostrar_Combo extends JDialog {
 
     public Mostrar_Combo(InterfazPrincipal parent, Tienda tienda) {
         super(parent, "Mostrar Combos Disponibles", true);
+        setResizable(false);
         this.tienda = tienda;
 
         // Configurar la ventana
@@ -27,11 +28,6 @@ public class Mostrar_Combo extends JDialog {
         JPanel panel = new JPanel();
         panel.setBounds(0, 0, 584, 361);
         panel.setLayout(null);
-
-        // Etiqueta para el título
-        JLabel labelTitulo = new JLabel("Combos Disponibles");
-        labelTitulo.setBounds(240, 0, 136, 27);
-        panel.add(labelTitulo);
 
         // Datos para la tabla
         String[] columnas = {"Nombre Combo", "Componentes"};
@@ -44,24 +40,19 @@ public class Mostrar_Combo extends JDialog {
         // Crear la tabla con el modelo
         JTable tablaCombos = new JTable(modeloTabla);
         JScrollPane scrollPane = new JScrollPane(tablaCombos);
-        scrollPane.setBounds(0, 24, 584, 297);
+        scrollPane.setBounds(10, 11, 564, 288);
         panel.add(scrollPane);
 
         // Mostrar el panel en la ventana
         getContentPane().add(panel);
         
-        Panel botonPanel = new Panel();
-        botonPanel.setBounds(0, 321, 584, 40);
-        panel.add(botonPanel);
-        botonPanel.setLayout(null);
-        
         JButton btnSalir = new JButton("Salir");
+        btnSalir.setBounds(10, 310, 564, 40);
+        panel.add(btnSalir);
         btnSalir.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		dispose();        	}
         });
-        btnSalir.setBounds(0, 0, 584, 40);
-        botonPanel.add(btnSalir);
 
         // Centrar la ventana en la pantalla
         setLocationRelativeTo(null);

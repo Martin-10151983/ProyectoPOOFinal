@@ -45,7 +45,7 @@ public class Añadir_TarjetaMadre extends JDialog {
 	}
 
 	private void initComponents() {
-		
+
 		panel = new JPanel();
 		panel.setLayout(null);
 		JLabel label_6 = new JLabel("Marca:");
@@ -111,16 +111,16 @@ public class Añadir_TarjetaMadre extends JDialog {
 		sata3CheckBox.setBounds(276, 330, 114, 30);
 		panel.add(sata3CheckBox);
 
-		
+
 		JButton botonAgregar = new JButton("Agregar Tarjeta Madre");
 		botonAgregar.setBounds(10, 384, 247, 36);
 		panel.add(botonAgregar);
 
-		
+
 		botonAgregar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String marca = marcaField.getText();
 				String modelo = modeloField.getText();
 				double precio = Double.parseDouble(precioField.getText());
@@ -129,7 +129,7 @@ public class Añadir_TarjetaMadre extends JDialog {
 				String tipoConexionMicroprocesador = tipoConexionMicroprocesadorField.getText();
 				String tipoMemoriaRam = tipoMemoriaRamField.getText();
 
-				
+
 				conexionesDiscosDurosSeleccionadas.clear();
 				if (sataCheckBox.isSelected()) {
 					conexionesDiscosDurosSeleccionadas.add("SATA");
@@ -141,24 +141,26 @@ public class Añadir_TarjetaMadre extends JDialog {
 					conexionesDiscosDurosSeleccionadas.add("SATA-3");
 				}
 
-				
+
 				TarjetaMadre tarjetaMadre = new TarjetaMadre(marca, modelo, precio, cantidadDisponible, numeroSerie,
 						tipoConexionMicroprocesador, tipoMemoriaRam, conexionesDiscosDurosSeleccionadas);
 				tienda.agregarComponente(tarjetaMadre);
 				JOptionPane.showMessageDialog(Añadir_TarjetaMadre.this, "Tarjeta Madre agregada exitosamente.", "Agregado", JOptionPane.INFORMATION_MESSAGE);
+
+			}
+		});
+
+		getContentPane().add(panel);
+
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
+		btnSalir.setBounds(265, 384, 218, 37);
+		panel.add(btnSalir);
 		
-		getContentPane().add(panel);
 		
-        JButton btnSalir = new JButton("Salir");
-        btnSalir.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		dispose();
-        	}
-        });
-        btnSalir.setBounds(265, 384, 218, 37);
-        panel.add(btnSalir);
 	}
 }

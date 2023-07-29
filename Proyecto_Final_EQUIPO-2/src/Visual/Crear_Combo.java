@@ -14,22 +14,21 @@ import java.util.ArrayList;
 public class Crear_Combo extends JDialog {
     private Tienda tienda;
     private ArrayList<Componente> componentesSeleccionados;
+    private static int contadorCombos = 1;
 
     public Crear_Combo(InterfazPrincipal parent, Tienda tienda) {
         super(parent, "Crear Combo", true);
+        setResizable(false);
         this.tienda = tienda;
         this.componentesSeleccionados = new ArrayList<>();
 
         
-        setSize(509, 370);
+        setSize(509, 402);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
       
-        JPanel panel = new JPanel(new BorderLayout());
-
-       
-        JLabel labelTitulo = new JLabel("Ensamblar Nuevo Combo");
-        panel.add(labelTitulo, BorderLayout.NORTH);
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
 
        
         DefaultListModel<Componente> listaModel = new DefaultListModel<>();
@@ -37,11 +36,14 @@ public class Crear_Combo extends JDialog {
             listaModel.addElement(componente);
         }
         JList<Componente> listaComponentes = new JList<>(listaModel);
-        panel.add(new JScrollPane(listaComponentes), BorderLayout.CENTER);
+        JScrollPane scrollPane = new JScrollPane(listaComponentes);
+        scrollPane.setBounds(10, 14, 350, 290);
+        panel.add(scrollPane);
 
         
-        JButton botonAgregarComponente = new JButton("Agregar Componente");
-        panel.add(botonAgregarComponente, BorderLayout.EAST);
+        JButton botonAgregarComponente = new JButton("Agregar ");
+        botonAgregarComponente.setBounds(368, 14, 115, 290);
+        panel.add(botonAgregarComponente);
         botonAgregarComponente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,14 +58,16 @@ public class Crear_Combo extends JDialog {
         });
 
         
-        JButton botonEnsamblarCombo = new JButton("Ensamblar y Agregar Combo");
-        panel.add(botonEnsamblarCombo, BorderLayout.SOUTH);
+        JButton botonEnsamblarCombo = new JButton("Ensamblar Combo");
+        botonEnsamblarCombo.setBounds(10, 315, 473, 36);
+        panel.add(botonEnsamblarCombo);
         botonEnsamblarCombo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ensamblarYAgregarCombo();
             }
         });
+        getContentPane().setLayout(new BorderLayout(0, 0));
 
         
         getContentPane().add(panel);
@@ -90,8 +94,10 @@ public class Crear_Combo extends JDialog {
         }
     }
 
-    private String generarNumeroSerieCombo() {
-       
-        return "COMBO-" + (int) (Math.random() * 1000);
+    private String generarNumeroSerieCombo() {     
+        String numeroSerie = String.format("COMBO-%03d", contadorCombos);
+        contadorCombos++;
+        return numeroSerie;
     }
+
 }

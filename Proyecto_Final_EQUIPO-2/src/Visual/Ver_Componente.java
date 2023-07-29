@@ -63,30 +63,30 @@ public class Ver_Componente extends JDialog {
 
         // Crear un JScrollPane para agregar la tabla con scroll si es necesario
         JScrollPane scrollPane = new JScrollPane(tabla);
+        scrollPane.setBounds(10, 11, 774, 316);
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-        // Crear botones de eliminar y editar componentes
-        JButton eliminarButton = new JButton("Eliminar Componente");
-        eliminarButton.addActionListener(this::eliminarComponente);
-
-        JButton editarButton = new JButton("Editar Componente");
-        editarButton.addActionListener(this::editarComponente);
-
-        // Panel para contener los botones
-        JPanel botonesPanel = new JPanel();
-        botonesPanel.add(eliminarButton);
-        botonesPanel.add(editarButton);
-
         // Crear el panel principal
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.add(scrollPane, BorderLayout.CENTER);
-        panel.add(botonesPanel, BorderLayout.SOUTH);
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.add(scrollPane);
 
         // Mostrar el panel en la ventana
         getContentPane().add(panel);
+        
+                // Crear botones de eliminar y editar componentes
+                JButton eliminarButton = new JButton("Eliminar Componente");
+                eliminarButton.setBounds(10, 336, 380, 29);
+                panel.add(eliminarButton);
+                
+                        JButton editarButton = new JButton("Editar Componente");
+                        editarButton.setBounds(404, 336, 380, 29);
+                        panel.add(editarButton);
+                        editarButton.addActionListener(this::editarComponente);
+                eliminarButton.addActionListener(this::eliminarComponente);
 
         // Establecer el tamaño y la posición de la ventana
-        setSize(800, 400);
+        setSize(810, 415);
         setLocationRelativeTo(null); // Centrar la ventana en la pantalla
     }
 
@@ -125,7 +125,9 @@ public class Ver_Componente extends JDialog {
                 Editar_TarjetaMadre dialog = new Editar_TarjetaMadre(null, (TarjetaMadre) componenteSeleccionado);
                 dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
                 dialog.setVisible(true);
-            }
+            } 
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione un componente para eliminar.", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }
 }

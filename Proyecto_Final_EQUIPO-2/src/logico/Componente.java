@@ -63,5 +63,9 @@ public class Componente {
 		this.cantidadDisponible = otroComponente.cantidadDisponible;
 		this.numeroSerie = otroComponente.numeroSerie;
 	}
+	
+	public String toString() {
+		return getMarca() + " " + getModelo();
+	}
 
 }
