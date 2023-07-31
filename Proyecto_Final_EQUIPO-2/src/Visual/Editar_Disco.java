@@ -19,7 +19,7 @@ public class Editar_Disco extends JDialog {
     public Editar_Disco(Ver_Componente parent, Disco discoDuro) {
         super(parent, "Editar Disco Duro", true);
         setResizable(false);
-        setSize(416, 347);
+        setSize(416, 400);
         this.discoDuro = discoDuro;
         initComponents();
     }
@@ -34,39 +34,39 @@ public class Editar_Disco extends JDialog {
 
         JLabel modeloLabel = new JLabel("Modelo:");
         modeloLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        modeloLabel.setBounds(60, 42, 123, 32);
+        modeloLabel.setBounds(60, 50, 123, 32);
         modeloField = new JTextField(20);
-        modeloField.setBounds(193, 42, 123, 32);
+        modeloField.setBounds(193, 50, 123, 32);
 
         JLabel precioLabel = new JLabel("Precio:");
         precioLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        precioLabel.setBounds(60, 74, 123, 32);
+        precioLabel.setBounds(60, 93, 123, 32);
         precioField = new JTextField(20);
-        precioField.setBounds(193, 74, 123, 32);
+        precioField.setBounds(193, 93, 123, 32);
 
         JLabel cantidadDisponibleLabel = new JLabel("Cantidad Disponible:");
         cantidadDisponibleLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        cantidadDisponibleLabel.setBounds(60, 106, 123, 32);
+        cantidadDisponibleLabel.setBounds(60, 136, 123, 32);
         cantidadDisponibleField = new JTextField(20);
-        cantidadDisponibleField.setBounds(193, 106, 123, 32);
+        cantidadDisponibleField.setBounds(193, 136, 123, 32);
 
         JLabel numeroSerieLabel = new JLabel("Número de Serie:");
         numeroSerieLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        numeroSerieLabel.setBounds(10, 138, 173, 32);
+        numeroSerieLabel.setBounds(10, 179, 173, 32);
         numeroSerieField = new JTextField(20);
-        numeroSerieField.setBounds(193, 138, 123, 32);
+        numeroSerieField.setBounds(193, 179, 123, 32);
 
         JLabel tipoConexionLabel = new JLabel("Tipo de Conexión:");
         tipoConexionLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        tipoConexionLabel.setBounds(10, 170, 173, 32);
+        tipoConexionLabel.setBounds(10, 222, 173, 32);
         tipoConexionField = new JTextField(20);
-        tipoConexionField.setBounds(193, 170, 123, 32);
+        tipoConexionField.setBounds(193, 222, 123, 32);
 
         JLabel capacidadAlmacenamientoLabel = new JLabel("Capacidad de Almacenamiento:");
         capacidadAlmacenamientoLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-        capacidadAlmacenamientoLabel.setBounds(10, 202, 173, 32);
+        capacidadAlmacenamientoLabel.setBounds(10, 265, 173, 32);
         capacidadAlmacenamientoField = new JTextField(20);
-        capacidadAlmacenamientoField.setBounds(193, 202, 123, 32);
+        capacidadAlmacenamientoField.setBounds(193, 265, 123, 32);
 
         // Cargar la información del Disco Duro en los campos de texto
         cargarInformacionDiscoDuro();
@@ -74,7 +74,7 @@ public class Editar_Disco extends JDialog {
 
         // Crear el panel principal
         JPanel mainPanel = new JPanel();
-        mainPanel.setBounds(0, 0, 400, 308);
+        mainPanel.setBounds(0, 0, 400, 361);
         mainPanel.setLayout(null);
         mainPanel.add(marcaLabel);
         mainPanel.add(marcaField);
@@ -96,7 +96,7 @@ public class Editar_Disco extends JDialog {
         
                 // Botón para guardar los cambios
                 JButton guardarButton = new JButton("Guardar");
-                guardarButton.setBounds(182, 274, 99, 23);
+                guardarButton.setBounds(182, 327, 99, 23);
                 mainPanel.add(guardarButton);
                 
                 JButton btnCancelar = new JButton("Cancelar");
@@ -105,7 +105,7 @@ public class Editar_Disco extends JDialog {
                 		dispose();
                 	}
                 });
-                btnCancelar.setBounds(291, 274, 99, 23);
+                btnCancelar.setBounds(291, 327, 99, 23);
                 mainPanel.add(btnCancelar);
                 guardarButton.addActionListener(e -> guardarCambios());
 

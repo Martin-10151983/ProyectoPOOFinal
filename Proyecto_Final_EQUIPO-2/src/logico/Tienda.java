@@ -6,45 +6,31 @@ public class Tienda {
 	private ArrayList<Componente> inventarioComponentes;
 	private ArrayList<Combo> combosDisponibles;
 	private ArrayList<Cliente> misClientes;
+	private ArrayList<Factura> facturas;
 
 	public Tienda() {
 		this.inventarioComponentes = new ArrayList<>();
 		this.combosDisponibles = new ArrayList<>();
-		this.setMisClientes(new ArrayList<>());
+		this.misClientes = new ArrayList<>();
+		this.setFacturas(new ArrayList<>());
 	}
-
-
-
-	
 
 	public ArrayList<Componente> getInventarioComponentes() {
 		return inventarioComponentes;
 	}
 
-
-
 	public void setInventarioComponentes(ArrayList<Componente> inventarioComponentes) {
 		this.inventarioComponentes = inventarioComponentes;
 	}
-
-
 
 	public ArrayList<Combo> getCombosDisponibles() {
 		return combosDisponibles;
 	}
 
-
-
 	public void setCombosDisponibles(ArrayList<Combo> combosDisponibles) {
 		this.combosDisponibles = combosDisponibles;
 	}
 
-
-
-	public void agregarComponente(Componente componente) {
-		inventarioComponentes.add(componente);
-	}
-	
 	public ArrayList<Cliente> getMisClientes() {
 		return misClientes;
 	}
@@ -53,6 +39,18 @@ public class Tienda {
 		this.misClientes = misClientes;
 	}
 	
+	public ArrayList<Factura> getFacturas() {
+		return facturas;
+	}
+
+	public void setFacturas(ArrayList<Factura> facturas) {
+		this.facturas = facturas;
+	}
+
+	public void agregarComponente(Componente componente) {
+		inventarioComponentes.add(componente);
+	}
+
 	public void eliminarComponente(int filaSeleccionada) {
 		for(Combo combo : combosDisponibles) {
 			if(combo.getComponentesIncluidos().contains(filaSeleccionada)) {
@@ -60,13 +58,13 @@ public class Tienda {
 			}
 		}
 		inventarioComponentes.remove(filaSeleccionada);
-		
+
 		for (int i = combosDisponibles.size() - 1; i >= 0; i--) {
-            Combo combo = combosDisponibles.get(i);
-            if (combo.getComponentesIncluidos().isEmpty()) {
-                combosDisponibles.remove(i);
-            }
-        }
+			Combo combo = combosDisponibles.get(i);
+			if (combo.getComponentesIncluidos().isEmpty()) {
+				combosDisponibles.remove(i);
+			}
+		}
 	}
 
 	public void mostrarInventarioComponentes() {
@@ -112,7 +110,7 @@ public class Tienda {
 		return null; 
 	}
 
-	
+
 
 	public void ensamblarCombo(Combo combo) {
 		for (Componente componente : combo.getComponentesIncluidos()) {
@@ -122,7 +120,7 @@ public class Tienda {
 			}
 		}
 
-		
+
 		System.out.println("Ensamblado del combo exitoso. Factura:");
 		for (Componente componente : combo.getComponentesIncluidos()) {
 			System.out.println(componente.getClass().getSimpleName() + " - " +
@@ -132,5 +130,5 @@ public class Tienda {
 		}
 		System.out.println("Precio total del combo: $" + combo.getPrecioTotalCombo());
 	}
-	
+
 }
